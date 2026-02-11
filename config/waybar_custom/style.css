@@ -1,0 +1,37 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Roboto", "Helvetica", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: transparent; /* Thanh bar chính trong suốt */
+}
+
+/* Style chung cho tất cả "Widgets" */
+#workspaces, #clock, #network, #backlight, #pulseaudio, #battery, #tray {
+    background: rgba(30, 30, 46, 0.8); /* Màu nền tối trong suốt */
+    color: #cdd6f4;
+    padding: 0 12px;
+    margin: 4px 3px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hiệu ứng khi di chuột vào (Hover) */
+#network:hover, #backlight:hover, #pulseaudio:hover {
+    background: #89b4fa;
+    color: #1e1e2e;
+    transition: all 0.3s ease;
+}
+
+/* Màu riêng cho từng trạng thái */
+#network.disconnected {
+    background: #f38ba8;
+    color: #1e1e2e;
+}
+
+#pulseaudio.muted {
+    background: #45475a;
+    color: #a6adc8;
+}

@@ -1,0 +1,105 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false; /* Power menu thường dùng icon font thay vì icon ứng dụng */
+}
+
+/*****----- Global Properties -----*****/
+@import "color.rasi"
+
+/*****----- Main Window -----*****/
+window {
+    /* Cửa sổ nhỏ gọn, đặt ở giữa màn hình */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       300px;
+    enabled:                     true;
+    border:                      2px solid;
+    border-radius:               25px; /* Bo góc cực mạnh cho mềm mại */
+    border-color:                @selected;
+    background-color:            @background;
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     25px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     0px;
+    padding:                     0px;
+    background-color:            transparent;
+    children:                    [ "textbox-prompt-colon", "prompt" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         ""; /* Icon nguồn */
+    padding:                     12px 16px;
+    border-radius:               15px 0px 0px 15px;
+    background-color:            @urgent;
+    text-color:                  @background;
+    font:                        "MesloLGLDZ Nerd Font Bold 14";
+}
+
+prompt {
+    enabled:                     true;
+    expand:                      true;
+    padding:                     12px;
+    border-radius:               0px 15px 15px 0px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    content:                     "Power Menu";
+    vertical-align:              0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       5; /* Shutdown, Reboot, Lock, Suspend, Logout */
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     12px;
+    border-radius:               15px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5; /* Căn giữa chữ để trông cân đối */
+    font:                        "MesloLGLDZ Nerd Font Bold 11";
+}
