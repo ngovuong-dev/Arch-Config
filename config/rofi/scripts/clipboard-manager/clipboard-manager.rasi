@@ -1,0 +1,84 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons: false;
+}
+
+/*****----- Global Properties -----*****/
+@import                          "~/.config/rofi/color.rasi"
+
+
+/*****----- Main Window -----*****/
+window {
+    transparency:       "real";
+    location:           center;
+    anchor:             center;
+    width:              700px;
+    border-radius:      12px;
+    border-color:       @border-colour;
+    background-color:   @background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:            10px;
+    padding:            20px;
+    children:           [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    spacing:            10px;
+    padding:            15px;
+    border-radius:      10px;
+    background-color:   @background-alt;
+    text-color:         @foreground;
+    children:           [ "prompt", "entry" ];
+}
+
+prompt {
+    text-color:         @selected;
+    font:               "MesloLGLDZ Nerd Font Bold 12";
+}
+
+entry {
+    text-color:         @foreground;
+    cursor:             text;
+    /* Dòng nhắc nhở phím tắt cho người dùng */
+    placeholder:        " Alt+P: Pin | Alt+D: Unpin/Delete | Enter: Copy";
+    placeholder-color:  #64748B; /* Slate gray */
+}
+
+/*****----- Listview -----*****/
+listview {
+    columns:            1;
+    lines:              10;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
+    
+    spacing:            5px;
+    background-color:   transparent;
+    text-color:         @foreground;
+}
+
+/*****----- Elements -----*****/
+element {
+    padding:            12px 15px;
+    border-radius:      8px;
+    background-color:   transparent;
+    text-color:         @foreground;
+    cursor:             pointer;
+}
+
+element normal.normal { background-color: transparent; text-color: @foreground; }
+element alternate.normal { background-color: transparent; text-color: @foreground; }
+element selected.normal { background-color: @selected; text-color: @background-alt; }
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    highlight:          inherit;
+    cursor:             inherit;
+    vertical-align:     0.5;
+}

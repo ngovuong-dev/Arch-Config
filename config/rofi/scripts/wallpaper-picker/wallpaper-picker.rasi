@@ -1,0 +1,164 @@
+/*****----- Configuration for Wallpaper Picker -----*****/
+configuration {
+    show-icons:                 true;
+}
+
+/*****----- Global Properties -----*****/
+@import                         "~/.config/rofi/color.rasi"
+
+* {
+    /* Color variable mappings */
+    border-colour:               var(selected);
+    handle-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+    active-background:           var(active);
+    active-foreground:           var(background);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background);
+    selected-urgent-background:  var(active);
+    selected-urgent-foreground:  var(background);
+    selected-active-background:  var(urgent);
+    selected-active-foreground:  var(background);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(background);
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(background);
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:       "real";
+    location:           center;
+    anchor:             center;
+    fullscreen:         false;
+    width:              70%;
+    height:             55%;
+    border:             2px solid;
+    border-radius:      14px;
+    border-color:       @border-colour;
+    background-color:   @background-colour;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:            12px;
+    padding:            18px;
+    border-radius:      8px;
+    background-color:   transparent;
+    children:           [ "inputbar", "listview", "message" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    spacing:            10px;
+    background-color:   transparent;
+    text-color:         @foreground-colour;
+    children:           [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    padding:            5px 0px;
+    expand:             false;
+    str:                " "; 
+    background-color:   inherit;
+    text-color:         inherit;
+}
+
+entry {
+    font:               "MesloLGLDZ Nerd Font Bold 11";
+    padding:            5px 0px;
+    background-color:   inherit;
+    text-color:         inherit;
+    cursor:             text;
+    placeholder:        " Search wallpapers...";
+    placeholder-color:  inherit;
+}
+
+/*****----- Listview (Grid Layout) -----*****/
+listview {
+    columns:            4;
+    lines:              3;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          true;
+    layout:             vertical;
+    fixed-height:       true;
+    fixed-columns:      true;
+    spacing:            18px;
+    background-color:   transparent;
+    text-color:         @foreground-colour;
+    cursor:             "default";
+}
+
+scrollbar {
+    handle-width:       5px;
+    handle-color:       @handle-colour;
+    border-radius:      10px;
+    background-color:   @alternate-background;
+}
+
+/*****----- Elements (Individual Wallpaper Items) -----*****/
+element {
+    spacing:            10px;
+    padding:            10px;
+    border-radius:      12px;
+    background-color:   transparent;
+    text-color:         @foreground-colour;
+    cursor:             pointer;
+    orientation:        vertical;
+}
+
+/* Grouped normal and alternate states together for cleaner code */
+element normal.normal, element alternate.normal { 
+    background-color:   var(normal-background); 
+    text-color:         var(normal-foreground); 
+}
+
+element selected.normal { 
+    background-color:   var(selected-normal-background); 
+    text-color:         var(selected-normal-foreground); 
+}
+
+/* Thumbnail styling */
+element-icon {
+    background-color:   transparent;
+    text-color:         inherit;
+    size:               180px;
+    cursor:             inherit;
+    horizontal-align:   0.5;
+    border-radius:      10px;
+}
+
+/* Filename text styling */
+element-text {
+    font:               "MesloLGLDZ Nerd Font 11";
+    background-color:   transparent;
+    text-color:         inherit;
+    highlight:          inherit;
+    cursor:             inherit;
+    vertical-align:     0.5;
+    horizontal-align:   0.5; 
+}
+
+/*****----- Message Area (For Hints/Selections) -----*****/
+message {
+    padding:            10px 12px;
+    border-radius:      8px;
+    background-color:   @alternate-background;
+    text-color:         @foreground-colour;
+}
+
+textbox {
+    background-color:   inherit;
+    text-color:         inherit;
+    vertical-align:     0.5;
+    horizontal-align:   0.0;
+}

@@ -1,0 +1,108 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* GNOME-style modern dark theme with subtle accents */
+    background:     #0F172AE6; /* Deep navy, translucent */
+    background-alt: #1E293BFF; /* Slightly lighter for buttons */
+    foreground:     #E6EEF4FF; /* Soft off-white */
+    selected:       #6EE7B7FF; /* Mint accent for hover/selection */
+    
+    border-colour:  var(selected);
+    background-color: transparent;
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:       "real";
+    /* Move to the bottom center */
+    location:           south;
+    anchor:             south;
+    fullscreen:         false;
+    
+    /* Smaller, more compact width */
+    width:              450px; 
+    
+    /* Float it 40px above the bottom edge of the screen */
+    y-offset:           -40px; 
+    x-offset:           0px;
+
+    border:             2px solid;
+    border-radius:      20px; /* Slightly smaller radius for a smaller box */
+    border-color:       @border-colour;
+    background-color:   @background;
+    /* Reduced window padding */
+    padding:            15px; 
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:            15px;
+    margin:             0px;
+    padding:            0px;
+    children:           [ "inputbar", "listview" ]; 
+}
+
+/*****----- Inputbar (Title) -----*****/
+inputbar {
+    enabled:            true;
+    spacing:            0px;
+    margin:             0px;
+    padding:            5px;
+    background-color:   transparent;
+    text-color:         @foreground;
+    children:           [ "prompt" ];
+}
+
+prompt {
+    enabled:            true;
+    font:               "MesloLGLDZ Nerd Font Bold 14"; /* Slightly smaller font */
+    background-color:   transparent;
+    text-color:         @foreground;
+    horizontal-align:   0.5;
+    vertical-align:     0.5;
+    expand:             true;
+}
+
+/*****----- Listview (Horizontal Button Grid) -----*****/
+listview {
+    enabled:            true;
+    columns:            3;
+    lines:              1;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
+    
+    /* Tighter spacing between buttons */
+    spacing:            12px; 
+    background-color:   transparent;
+    text-color:         @foreground;
+    cursor:             "default";
+}
+
+/*****----- Elements (Individual Buttons) -----*****/
+element {
+    enabled:            true;
+    /* Thinner padding to make the buttons smaller and sleeker */
+    padding:            15px 10px; 
+    border-radius:      14px;
+    background-color:   @background-alt;
+    text-color:         @foreground;
+    cursor:             pointer;
+}
+
+element normal.normal { background-color: @background-alt; text-color: @foreground; }
+element selected.normal { background-color: @selected; text-color: @background; }
+
+element-text {
+    font:               "MesloLGLDZ Nerd Font Bold 11";
+    background-color:   transparent;
+    text-color:         inherit;
+    cursor:             inherit;
+    vertical-align:     0.5;
+    horizontal-align:   0.5;
+}

@@ -1,8 +1,12 @@
 * {
-    background:     #11243695;
-    background-alt: #0B1723FF;
-    foreground:     #EAF2F9FF;
-    selected:       #71BBD4FF;
-    active:         #98C379FF;
-    urgent:         #E06C75FF;
+    /* Modern, subtle dark theme with soft accent colors */
+    background:     #0F172AE6; /* deep navy, slight translucency */
+    background-alt: #0B1220FF; /* darker alt */
+    foreground:     #E6EEF4FF; /* soft off-white */
+    selected:       #6EE7B7FF; /* mint accent */
+    active:         #60A5FAFF; /* cool blue */
+    urgent:         #FB7185FF; /* warm pink for errors */
+
+    border-colour:  var(selected);
+    background-color: transparent;
 }
