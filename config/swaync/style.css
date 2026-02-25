@@ -1,134 +1,128 @@
-/* Custom Color Palette (Matching your Rofi Theme) */
-@define-color background rgba(15, 23, 42, 0.9);  /* #0F172AE6 - Deep navy translucent */
-@define-color background-alt #0B1220;            /* Darker alt */
-@define-color foreground #E6EEF4;                /* Soft off-white */
-@define-color accent-mint #6EE7B7;               /* Mint accent */
-@define-color accent-blue #60A5FA;               /* Cool blue */
-@define-color urgent #FB7185;                    /* Warm pink */
-@define-color border-color rgba(110, 231, 183, 0.5); /* Semi-transparent mint border */
+/* --- BẢNG MÀU CATPPUCCIN MOCHA --- */
+@define-color base   rgba(30, 30, 46, 0.7); /* Nền bán trong suốt để làm kính mờ */
+@define-color mantle rgba(24, 24, 37, 0.8);
+@define-color text   #cdd6f4;
+@define-color blue   #89b4fa;
+@define-color green  #a6e3a1;
+@define-color red    #f38ba8;
+@define-color hover  rgba(255, 255, 255, 0.1);
 
-/* Global Reset & Smooth Transitions */
 * {
-    font-family: "MesloLGLDZ Nerd Font", "sans-serif";
-    font-size: 14px;
-    font-weight: bold;
-    background-clip: padding-box;
-    /* This creates the buttery smooth hover effects */
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: "MesloLGLDZ Nerd Font", sans-serif;
+  font-weight: bold;
 }
 
-/* The Main Control Center Panel */
+/* KHUNG TRUNG TÂM KIỂM SOÁT */
 .control-center {
-    background: @background;
-    color: @foreground;
-    border: 2px solid @border-color;
-    border-radius: 16px;
+  background: @base;
+  border-radius: 16px;
+  border: 2px solid @blue;
+  color: @text;
 }
 
-/* Individual Floating Notifications */
-.floating-notifications {
-    background: transparent;
+/* TIÊU ĐỀ */
+.widget-label {
+  color: @blue;
+  font-size: 20px;
+  margin: 10px;
 }
 
-.notification {
-    background: @background-alt;
-    border-radius: 14px;
-    margin: 8px 12px;
-    padding: 0;
-    border: 1px solid transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* NÚT BẤM (WIFI, BLUETOOTH...) */
+.widget-buttons-grid {
+  font-size: 24px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 12px;
+  background: @mantle;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  background: transparent;
+  border-radius: 8px;
+  color: @text;
+  min-width: 60px;
+  min-height: 50px;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @hover;
+  color: @blue;
 }
 
-/* Highlight border when hovering over a notification */
-.notification:hover {
-    border: 1px solid @accent-mint;
+/* THANH TRƯỢT ÂM LƯỢNG & ĐỘ SÁNG */
+.widget-volume, .widget-backlight {
+  background: @mantle;
+  padding: 10px 15px;
+  margin: 5px 10px;
+  border-radius: 12px;
+  color: @text;
+  font-size: 18px;
 }
-
-.notification-row {
-    outline: none;
-}
-
-/* Title Bar (Top area with Clear All button) */
-.widget-title {
-    color: @foreground;
-    font-size: 20px;
-    margin: 15px 15px 5px 15px;
-}
-
-.widget-title>button {
-    font-size: 13px;
-    color: @foreground;
-    text-shadow: none;
-    background: transparent;
-    border: 1px solid @border-color;
-    border-radius: 8px;
-    padding: 4px 10px;
-}
-
-.widget-title>button:hover {
-    background: @urgent;
-    color: @background-alt;
-    border-color: @urgent;
-}
-
-/* Do Not Disturb Toggle */
-.widget-dnd {
-    margin: 5px 15px;
-    color: @foreground;
-}
-
-.widget-dnd>switch {
-    background: @background-alt;
-    border-radius: 12px;
-    border: 1px solid @border-color;
-}
-
-.widget-dnd>switch:checked {
-    background: @urgent;
-    border-color: @urgent;
-}
-
-/* MPRIS Media Player */
-.widget-mpris {
-    background: @background-alt;
-    border-radius: 14px;
-    margin: 10px 15px;
-    padding: 12px;
-}
-
-.widget-mpris-player {
-    padding: 5px;
-}
-
-/* Volume Slider */
-.widget-volume {
-    background: @background-alt;
-    border-radius: 14px;
-    margin: 5px 15px 15px 15px;
-    padding: 10px 15px;
-    color: @foreground;
-}
-
 scale trough {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    min-height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-height: 10px;
 }
-
 scale highlight {
-    background: @accent-blue;
-    border-radius: 8px;
+  background: @blue;
+  border-radius: 8px;
 }
 
-/* Notification Action Buttons (e.g., Reply, Open) */
-.notification-action {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0 0 14px 14px;
-    background: transparent;
-    color: @accent-blue;
+/* TRÌNH PHÁT NHẠC (MPRIS) */
+.widget-mpris {
+  background: @mantle;
+  margin: 5px 10px;
+  border-radius: 12px;
+  padding: 10px;
+  color: @text;
 }
 
-.notification-action:hover {
-    background: @accent-blue;
-    color: @background-alt;
+/* NÚT KHÔNG LÀM PHIỀN (DND) */
+.widget-dnd {
+  margin: 5px 10px;
+  background: @mantle;
+  padding: 10px;
+  border-radius: 12px;
+  color: @text;
+}
+.widget-dnd>switch {
+  background: rgba(255, 255, 255, 0.1);
+}
+.widget-dnd>switch:checked {
+  background: @green;
+}
+
+/* TỪNG CÁI THÔNG BÁO */
+.notification {
+  background: @mantle;
+  border-radius: 12px;
+  margin: 5px 10px;
+  padding: 0;
+}
+.notification-content {
+  padding: 10px;
+}
+
+/* --- PHONG CÁCH GNOME QUICK SETTINGS --- */
+.widget-buttons-grid {
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 24px; /* Bo góc cực to kiểu GNOME */
+  background: @mantle;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 99px; /* Nút dạng viên thuốc (Pill shape) */
+  min-width: 140px; /* Chiều rộng lớn để chia làm 2 cột */
+  padding: 12px 10px;
+  margin: 6px;
+  color: @text;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @blue; /* Rê chuột vào sẽ sáng xanh lên như GNOME */
+  color: @base;
+  box-shadow: 0px 0px 10px rgba(137, 180, 250, 0.5); /* Hiệu ứng tỏa sáng */
 }

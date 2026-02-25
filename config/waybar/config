@@ -22,8 +22,8 @@
         "pulseaudio",
         "network",
         "battery",
-        "custom/notification",
-        "custom/power"
+        "custom/power",
+	"power-profiles-daemon"	
     ],
 
     // --- Modules Configuration ---
@@ -62,10 +62,11 @@
             "(.*) - Kitty": "  $1"
         }
     },
-
+    
     "clock": {
         "format": "  {:%H:%M  |    %d %b}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "on-click": "swaync-client -t -sw" 
     },
 
     "backlight": {
@@ -124,7 +125,7 @@
         "icon-size": 12,
         "spacing": 17
     },
-    
+
     "custom/expand-icon": {
         "format": "",
         "tooltip": false,
@@ -134,11 +135,14 @@
         "on-scroll-right": ""
     },
 
-    "custom/notification": {
-        "tooltip": false,
-        "format": "",
-        "on-click": "swaync-client -t -sw",
-        "escape": true
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "performance": "🚀",
+            "balanced": "⚖️",
+            "power-saver": "🔋"
+        }
     },
 
     "custom/power": {

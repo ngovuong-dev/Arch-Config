@@ -2,65 +2,90 @@
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "right",
   "positionY": "top",
-  "control-center-margin-top": 15,
-  "control-center-margin-bottom": 15,
-  "control-center-margin-right": 15,
-  "control-center-margin-left": 15,
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "control-center-width": 350,
+  "fit-to-screen": false,
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "cssPriority": "user",
   "notification-icon-size": 64,
-  "notification-body-image-height": 120,
+  "notification-body-image-height": 100,
   "notification-body-image-width": 200,
   "timeout": 10,
   "timeout-low": 5,
   "timeout-critical": 0,
-  "fit-to-screen": true,
-  "control-center-width": 420,
-  "control-center-height": 800,
-  "notification-window-width": 400,
-  "keyboard-shortcuts": true,
-  "image-visibility": "when-available",
-  "transition-length": 250,
-  "hide-on-clear": false,
-  "hide-on-action": true,
-  "script-fail-notify": true,
   "widgets": [
-    "title",
-    "dnd",
-    "buttons#quick",
+    "label",
+    "buttons-grid",
     "volume",
     "backlight",
     "mpris",
+    "title",
+    "dnd",
     "notifications"
   ],
   "widget-config": {
-	"volume": {
-	    "label": "󰕾",
-	    "show-per-app": true,
-	    "expand-button-label": "󰅂",
-	    "collapse-button-label": "󰅀"
-	},
-	"backlight": {
-	    "label": "󰃠"
-	},
-	"buttons#quick": {
-	    "position": "left",
-	    "actions": [
-		{
-		    "label": "󰍬 Mic",
-		    "command": "pamixer --default-source -t"
-		},
-		{
-		    "label": "󰖟 WiFi",
-		    "command": "nm-connection-editor"
-		},
-		{
-		    "label": "󰂯 Blue",
-		    "command": "blueman-manager"
-		},
-		{
-		    "label": "󰒄 Set",
-		    "command": "pavucontrol"
-		}
-	    ]
-	}
+    "label": {
+      "max-lines": 1,
+      "text": "Center control"
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": " ",
+          "command": "sh -c 'powerprofilesctl set power-saver && notify-send \"🔋 Pin\" \"Đã bật: Tiết kiệm năng lượng (Power Saver)\"'"
+        },
+        {
+          "label": " ",
+          "command": "sh -c 'powerprofilesctl set balanced && notify-send \"⚖️ CPU\" \"Đã bật: Cân bằng (Balanced)\"'"
+        },
+        {
+          "label": " ",
+          "command": "sh -c 'powerprofilesctl set performance && notify-send \"🚀 CPU\" \"Đã bật: Hiệu năng tối đa (Performance)\"'"
+        },
+        {
+          "label": " ",
+          "command": "nm-connection-editor"
+        },
+        {
+          "label": " ",
+          "command": "blueman-manager"
+        },
+        {
+          "label": " ",
+          "command": "pavucontrol"
+        },
+        {
+          "label": " ",
+          "command": "hyprshot -m region"
+        },
+        {
+          "label": " ",
+          "command": "hyprlock"
+        },
+        {
+          "label": " ",
+          "command": "~/.config/rofi/scripts/power-menu/power-menu.sh"
+        }
+      ]
+    },
+    "title": {
+      "text": "Notification",
+      "clear-all-button": true,
+      "button-text": "󰎟 Clear"
+    },
+    "volume": {
+      "label": " "
+    },
+    "backlight": {
+      "label": " "
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 12
+    }
   }
 }
