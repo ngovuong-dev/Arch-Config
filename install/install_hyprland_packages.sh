@@ -34,7 +34,7 @@ HYPR_PACKAGES=(
 
     # --- System Utilities & Hardware Control ---
     "kitty"                         # Default terminal emulator
-    "hyprpolkitagent"               # Root authentication agent
+    "polkit-kde-agent"               # Root authentication agent
     "wl-clipboard"                  # Clipboard utility
     "cliphist"                      # Clipboard history
     "hyprshot"                      # Screenshot utility
