@@ -7,7 +7,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
-NC='\033[0m'
+NC='\033[0m' # No Color
 
 echo -e "${BLUE}====================================================${NC}"
 echo -e "${GREEN}      HYPRLAND ECOSYSTEM INSTALLER (ULTIMATE)       ${NC}"
@@ -17,48 +17,59 @@ echo -e "${BLUE}====================================================${NC}\n"
 # PACKAGE LIST FOR A FULL HYPRLAND & HARDWARE EXPERIENCE
 # ------------------------------------------------------------------------------
 HYPR_PACKAGES=(
-    # --- Core Compositor & Portals ---
-    "hyprland"                    # The main Wayland compositor
-    "xdg-desktop-portal-hyprland"  # Critical for screen sharing
-    "qt5-wayland" "qt6-wayland"    # Wayland support for Qt apps
+    # --- Core Compositor & Wayland Protocols ---
+    "hyprland"                    # Core Wayland compositor (Main environment)
+    "xdg-desktop-portal-hyprland"  # Crucial for screen sharing and app communication
+    "qt5-wayland" "qt6-wayland"    # Ensures Qt5/Qt6 apps run natively on Wayland
 
-    # --- UI & Customization ---
-    "waybar"                      # Your customized status bar
-    "rofi-wayland"                # App launcher & Keybindings menu
-    "swaync"                      # Notification Center (SwayNC)
-    "swww"                        # Animated wallpaper daemon
-    "hyprlock" "hypridle"         # Lockscreen and Idle management
+    # --- Thunar File Manager & Enhanced Plugins (Dolphin-like features) ---
+    "thunar"                       # Lightweight GTK file manager
+    "thunar-archive-plugin"        # Adds "Extract here" & "Compress" to context menu
+    "thunar-volman"                # Automatic management of removable drives
+    "tumbler"                      # D-Bus service for generating file thumbnails
+    "ffmpegthumbnailer"            # Video thumbnail support for Thunar
+    "thunar-media-tags-plugin"     # View/Edit media metadata in Thunar
+    "gvfs" "gvfs-mtp"              # Trash support, network mounting, and mobile devices
 
-    # --- System Utilities & Hardware Control ---
-    "kitty"                       # Your preferred terminal emulator
-    "polkit-kde-agent"            # Root authentication agent (GUI)
-    "wl-clipboard" "cliphist"     # Clipboard management tools
-    "hyprshot"                    # High-quality screenshot utility
-    "brightnessctl"               # LCD brightness control
-    "pavucontrol"                 # Audio/Mic volume control (GUI)
-    "network-manager-applet"      # Network/WiFi tray icon
-    "blueman"                     # Bluetooth manager
-    "udiskie"                     # Auto-mount USB drives
-    "libnotify"                   # Library for sending notifications
-    "wlsunset"                    # Blue light filter (Night light)
+    # --- Desktop Environment & UI Components ---
+    "waybar"                       # Highly customizable status bar
+    "rofi-wayland"                 # Dynamic application launcher & menu
+    "swaync"                       # Notification daemon with built-in control center
+    "swww"                         # High-performance wallpaper daemon (animated)
+    "hyprlock" "hypridle"          # Modern screen locking and idle/sleep management
+
+    # --- System Infrastructure & Hardware Integration ---
+    "kitty"                        # GPU-accelerated terminal emulator
+    "polkit-kde-agent"             # Provides graphical password prompts (Auth)
+    "wl-clipboard" "cliphist"      # System clipboard manager and history
+    "hyprshot"                     # Efficient screenshot tool tailored for Hyprland
+    "brightnessctl"                # CLI for controlling display brightness
+    "pavucontrol"                  # GUI for PulseAudio/Pipewire volume management
+    "network-manager-applet"       # System tray icon for WiFi/Network control
+    "blueman"                      # GUI for managing Bluetooth connections
+    "udiskie"                      # Auto-mounting daemon for removable media
+    "libnotify"                    # Core library for sending desktop notifications
+    "wlsunset"                     # Night light/Blue light filter for Wayland
 )
 
 # ------------------------------------------------------------------------------
-# [1/1] EXECUTE INSTALLATION
+# EXECUTE INSTALLATION
 # ------------------------------------------------------------------------------
-echo -e "${YELLOW}[1/3] Syncing databases and installing Hyprland ecosystem...${NC}"
+echo -e "${YELLOW}[1/3] Syncing repositories and deploying ecosystem...${NC}"
 sudo pacman -Sy --needed --noconfirm "${HYPR_PACKAGES[@]}"
 
 # ------------------------------------------------------------------------------
-# COMPLETION
+# COMPLETION SUMMARY
 # ------------------------------------------------------------------------------
 echo -e "\n${BLUE}====================================================${NC}"
-echo -e "${GREEN}✅ HYPRLAND SYSTEM IS READY!${NC}"
+echo -e "${GREEN}✅ HYPRLAND SYSTEM IS FULLY EQUIPPED!${NC}"
 echo -e "${BLUE}====================================================${NC}"
-echo -e "${YELLOW}👉 Quick Summary:${NC}"
-echo -e "   - Laptop: Acer Nitro 5 (i5 11th + GTX 1650)"
-echo -e "   - Core Stack: Hyprland + Waybar + Rofi"
-echo -e "   - Dev Tools: System Engineering focus"
-echo -e "\n${YELLOW}👉 Next steps:${NC}"
-echo -e "1. Reboot your laptop to apply NVIDIA changes."
-echo -e "2. Launch Hyprland and enjoy your Deep Navy & Mint setup!"
+echo -e "${YELLOW}👉 System Profile:${NC}"
+echo -e "   - Device: Acer Nitro 5 (i5 11th Gen + GTX 1650)"
+echo -e "   - Focus: System Engineering & Web Development"
+echo -e "   - File Manager: Thunar (Configured for performance)"
+
+echo -e "\n${YELLOW}👉 Important Post-Install Steps:${NC}"
+echo -e "1. Reboot to ensure NVIDIA DRM modeset is active."
+echo -e "2. Run 'nwg-look' to sync GTK themes for Thunar."
+echo -e "3. Enjoy your Deep Navy & Mint productivity environment!${NC}"
