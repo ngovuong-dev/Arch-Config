@@ -40,7 +40,7 @@ HYPR_PACKAGES=(
 
     # --- System Infrastructure & Hardware Integration ---
     "kitty"                        # GPU-accelerated terminal emulator
-    "polkit-kde-agent"             # Provides graphical password prompts (Auth)
+    "polkit-gnome"             # Provides graphical password prompts (Auth)
     "wl-clipboard" "cliphist"      # System clipboard manager and history
     "hyprshot"                     # Efficient screenshot tool tailored for Hyprland
     "brightnessctl"                # CLI for controlling display brightness
