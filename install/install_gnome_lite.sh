@@ -16,21 +16,20 @@ echo -e "${BLUE}====================================================${NC}\n"
 # THE "ZERO-BLOAT" PACKAGE LIST
 # ------------------------------------------------------------------------------
 GNOME_LITE=(
-    # --- Core Desktop Shell ---
-    "gnome-shell"             # The heart of GNOME (no extra apps)
-    "gdm"                     # Login manager (best for GNOME-Hyprland sync)
+  # --- Core Desktop Shell ---
+  "gnome-shell" # The heart of GNOME (no extra apps)
+  "gdm"         # Login manager (best for GNOME-Hyprland sync)
 
-    # --- Critical System Settings (Hardware Control) ---
-    "gnome-control-center"    # The main Settings app (Wifi, Bluetooth, Display)
+  # --- Critical System Settings (Hardware Control) ---
+  "gnome-control-center" # The main Settings app (Wifi, Bluetooth, Display)
 
+  # --- Essential Services (The "Backbone") ---
+  "gnome-keyring"     # Auto-unlock passwords for WiFi/GitHub
+  "xdg-user-dirs-gtk" # Creates Downloads, Documents, etc.
+  "networkmanager"    # Core network service
 
-    # --- Essential Services (The "Backbone") ---
-    "gnome-keyring"           # Auto-unlock passwords for WiFi/GitHub
-    "xdg-user-dirs-gtk"       # Creates Downloads, Documents, etc.
-    "networkmanager"          # Core network service
-
-    # --- Theming Bridge ---
-    "gsettings-desktop-schemas"
+  # --- Theming Bridge ---
+  "gsettings-desktop-schemas"
 )
 
 # ------------------------------------------------------------------------------

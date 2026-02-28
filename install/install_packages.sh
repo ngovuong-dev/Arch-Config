@@ -16,36 +16,36 @@ echo -e "${BLUE}====================================================${NC}\n"
 # THE ULTIMATE PACKAGE LIST (GTK Based & Optimized for Nitro 5)
 # ------------------------------------------------------------------------------
 ESSENTIAL_TOOLS=(
-    # 1. System Monitors (The "Pro" CLI Suite)
-    "fastfetch"             # System info summary
-    "btop"                  # Process & Resource monitor
-    "nvtop"                 # GPU monitor for your GTX 1650
+  # 1. System Monitors (The "Pro" CLI Suite)
+  "fastfetch" # System info summary
+  "btop"      # Process & Resource monitor
+  "nvtop"     # GPU monitor for your GTX 1650
 
-    # 2. File & Disk Management (GNOME/GTK Stack)
-    "file-roller"           # Archive manager backend
-    "gnome-disk-utility"    # Disk partitioning & S.M.A.R.T monitoring
-    "unzip" "p7zip"         # Compression engine
+  # 2. File & Disk Management (GNOME/GTK Stack)
+  "file-roller"        # Archive manager backend
+  "gnome-disk-utility" # Disk partitioning & S.M.A.R.T monitoring
+  "unzip" "p7zip"      # Compression engine
 
-    # 3. Media & Productivity (Pure GTK & High Performance)
-    "gnome-text-editor"     # Modern "Notepad" (Libadwaita)
-    "gnome-calculator"      # Feature-rich calculator
-    "gnome-font-viewer"     # Preview and install fonts
-    "gnome-calendar"        # Event management
-    "gnome-clocks"          # Alarm, Timer, Stopwatch
-    "loupe"                 # Modern, fast image viewer
-    "amberol"               # Minimalist music player (Replaces Elisa)
-    "sound-recorder"        # GNOME audio recorder (Replaces KRecorder)
-    "mpv"                   # Best video player for Hyprland
+  # 3. Media & Productivity (Pure GTK & High Performance)
+  "gnome-text-editor"    # Modern "Notepad" (Libadwaita)
+  "gnome-calculator"     # Feature-rich calculator
+  "gnome-font-viewer"    # Preview and install fonts
+  "gnome-calendar"       # Event management
+  "gnome-clocks"         # Alarm, Timer, Stopwatch
+  "loupe"                # Modern, fast image viewer
+  "amberol"              # Minimalist music player (Replaces Elisa)
+  "gnome-sound-recorder" # GNOME audio recorder (Replaces KRecorder)
+  "mpv"                  # Best video player for Hyprland
 
-    # 4. Desktop UI & Theme Engine
-    "nwg-display"           # Monitor layout manager
-    "nwg-look"              # Core GTK Theme/Icon/Cursor manager
-    "gsettings-desktop-schemas" # Essential for GNOME app settings
-    "qt5ct" "qt6ct"         # Styling bridge for any Qt apps you might run
+  # 4. Desktop UI & Theme Engine
+  "nwg-displays"              # Monitor layout manager
+  "nwg-look"                  # Core GTK Theme/Icon/Cursor manager
+  "gsettings-desktop-schemas" # Essential for GNOME app settings
+  "qt5ct" "qt6ct"             # Styling bridge for any Qt apps you might run
 
-    # 5. Developer & Maintenance
-    "neovim"                # Your primary coding environment
-    "pacman-contrib"        # System clean-up tools (paccache)
+  # 5. Developer & Maintenance
+  "neovim"         # Your primary coding environment
+  "pacman-contrib" # System clean-up tools (paccache)
 )
 
 # ------------------------------------------------------------------------------

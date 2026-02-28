@@ -1,9 +1,0 @@
-button
-title
-top-left-active
-top-right-active
-left-active
-right-active
-bottom-active
-bottom-left-active
-bottom-right-active

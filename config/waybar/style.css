@@ -195,8 +195,7 @@ window#waybar {
 /* --- Keybindings Cheat Sheet Button --- */
 #custom-keybinds {
     color: #6EE7B7; /* Mint accent color */
-    font-size: 16px;
-    border-radius: 6px;
+    font-size: 12px;
     transition: all 0.2s ease;
 }
 
