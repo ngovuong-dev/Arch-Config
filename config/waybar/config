@@ -2,14 +2,15 @@
     "layer": "top",
     "position": "top",
     "height": 26, 
-    "margin-top": 5,
-    "margin-left": 8,
-    "margin-right": 8,
-    "spacing": 4,
+    "margin-top": 3,
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 1,
 
     // Choose the order of the modules
     "modules-left": [
         "custom/launcher",
+        "custom/keybinds",
         "hyprland/workspaces",
         "hyprland/window"
     ],
@@ -22,8 +23,7 @@
         "pulseaudio",
         "network",
         "battery",
-        "custom/power",
-	"power-profiles-daemon"	
+        "custom/power"
     ],
 
     // --- Modules Configuration ---
@@ -55,7 +55,7 @@
 
     "hyprland/window": {
         "format": "{}",
-        "max-length": 40,
+        "max-length": 15,
         "rewrite": {
             "(.*) - Mozilla Firefox": "󰈹  $1",
             "(.*) - Visual Studio Code": "󰨞  $1",
@@ -64,7 +64,7 @@
     },
     
     "clock": {
-        "format": "  {:%H:%M  |    %d %b}",
+        "format": "  {:%H:%M |  %d %b}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "on-click": "swaync-client -t -sw" 
     },
@@ -93,12 +93,12 @@
     },
 
     "network": {
-        "format-wifi": "  {signalStrength}%",
+        "format-wifi": "  {essid}",
         "format-ethernet": "󰈀  Wired",
         "tooltip-format": "{essid} - {ifname} via {gwaddr}",
         "format-linked": "󰈀  {ifname} (No IP)",
         "format-disconnected": "⚠  Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname} {signalStrength}%: {ipaddr}/{cidr}  "
     },
 
     "battery": {
@@ -122,8 +122,14 @@
     },
 
     "tray": {
-        "icon-size": 12,
-        "spacing": 17
+        "icon-size": 13,
+        "spacing": 15
+    },
+
+    "custom/keybinds": {
+        "format": "Keybind",
+        "on-click": "~/.config/rofi/scripts/keybindings-menu/keybindings-menu.sh",
+        "tooltip-format": "⌨️ Show Keybindings"
     },
 
     "custom/expand-icon": {
@@ -135,18 +141,8 @@
         "on-scroll-right": ""
     },
 
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "format-icons": {
-            "default": "",
-            "performance": "🚀",
-            "balanced": "⚖️",
-            "power-saver": "🔋"
-        }
-    },
-
     "custom/power": {
-        "format": " ",
+        "format": "",
         "on-click": "~/.config/rofi/scripts/power-menu/power-menu.sh",
         "tooltip": false
     }

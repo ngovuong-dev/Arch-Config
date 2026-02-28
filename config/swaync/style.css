@@ -1,128 +1,176 @@
-/* --- BẢNG MÀU CATPPUCCIN MOCHA --- */
-@define-color base   rgba(30, 30, 46, 0.7); /* Nền bán trong suốt để làm kính mờ */
-@define-color mantle rgba(24, 24, 37, 0.8);
-@define-color text   #cdd6f4;
-@define-color blue   #89b4fa;
-@define-color green  #a6e3a1;
-@define-color red    #f38ba8;
-@define-color hover  rgba(255, 255, 255, 0.1);
-
+/* --- Global Settings --- */
 * {
-  font-family: "MesloLGLDZ Nerd Font", sans-serif;
-  font-weight: bold;
+    font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
+    font-size: 13px;
 }
 
-/* KHUNG TRUNG TÂM KIỂM SOÁT */
+/* --- Main Window --- */
 .control-center {
-  background: @base;
-  border-radius: 16px;
-  border: 2px solid @blue;
-  color: @text;
+    background: rgba(30, 30, 46, 0.95);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cdd6f4;
 }
 
-/* TIÊU ĐỀ */
-.widget-label {
-  color: @blue;
-  font-size: 20px;
-  margin: 10px;
-}
+/* --- Title & DND --- */
+.widget-title { margin: 12px 12px 5px 12px; font-size: 16px; font-weight: 800; }
+.widget-title > button { background: #f38ba8; color: #11111b; border-radius: 8px; padding: 5px 12px; transition: all 0.2s; }
+.widget-title > button:hover { background: #eba0ac; box-shadow: 0 0 8px rgba(243, 139, 168, 0.4); }
 
-/* NÚT BẤM (WIFI, BLUETOOTH...) */
+.widget-dnd { margin: 0px 12px 10px 12px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 8px 12px; }
+.widget-dnd > switch:checked { background: #89b4fa; border-radius: 8px; }
+
+/* --- MPRIS (Media Player) --- */
+.widget-mpris { background: rgba(255, 255, 255, 0.03); border-radius: 12px; margin: 5px 12px; padding: 10px; }
+.widget-mpris player { border-radius: 10px; }
+
+/* --- Sliders (Volume & Brightness) --- */
+.widget-volume, .widget-backlight { background: rgba(255, 255, 255, 0.03); padding: 8px 12px; margin: 6px 12px; border-radius: 12px; }
+scale contents trough highlight { background: linear-gradient(90deg, #89b4fa, #b4befe); border-radius: 8px; }
+scale contents trough { background: rgba(255, 255, 255, 0.06); border-radius: 8px; min-height: 8px; }
+
+/* --- Compact 3x2 Buttons Grid --- */
 .widget-buttons-grid {
-  font-size: 24px;
-  margin: 10px;
-  padding: 5px;
-  border-radius: 12px;
-  background: @mantle;
-}
-.widget-buttons-grid>flowbox>flowboxchild>button {
-  background: transparent;
-  border-radius: 8px;
-  color: @text;
-  min-width: 60px;
-  min-height: 50px;
-}
-.widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background: @hover;
-  color: @blue;
+    margin: 8px 12px;
 }
 
-/* THANH TRƯỢT ÂM LƯỢNG & ĐỘ SÁNG */
-.widget-volume, .widget-backlight {
-  background: @mantle;
-  padding: 10px 15px;
-  margin: 5px 10px;
-  border-radius: 12px;
-  color: @text;
-  font-size: 18px;
-}
-scale trough {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  min-height: 10px;
-}
-scale highlight {
-  background: @blue;
-  border-radius: 8px;
+/* INACTIVE STATE */
+.widget-buttons-grid > button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    margin: 4px;
+    padding: 12px 5px; /* Optimal height for 6 buttons */
+    color: #a6adc8; 
+    transition: all 0.2s ease-in-out;
 }
 
-/* TRÌNH PHÁT NHẠC (MPRIS) */
-.widget-mpris {
-  background: @mantle;
-  margin: 5px 10px;
-  border-radius: 12px;
-  padding: 10px;
-  color: @text;
+.widget-buttons-grid > button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #cdd6f4;
 }
 
-/* NÚT KHÔNG LÀM PHIỀN (DND) */
-.widget-dnd {
-  margin: 5px 10px;
-  background: @mantle;
-  padding: 10px;
-  border-radius: 12px;
-  color: @text;
-}
-.widget-dnd>switch {
-  background: rgba(255, 255, 255, 0.1);
-}
-.widget-dnd>switch:checked {
-  background: @green;
+/* --- ACTIVE STATE (Glowing, Highlighted & 3D Tactile) --- */
+.widget-buttons-grid > button:checked {
+    /* Smooth gradient using your Mint accent colors */
+    background: linear-gradient(135deg, #6EE7B7, #34D399); 
+    
+    /* Dark navy text for maximum contrast and readability */
+    color: #0B1220; 
+    font-weight: 800; /* Extra bold to pop out */
+    
+    /* Crisp, slightly brighter mint border */
+    border: 1px solid #A7F3D0; 
+    
+
 }
 
-/* TỪNG CÁI THÔNG BÁO */
+/* --- Notifications --- */
 .notification {
-  background: @mantle;
-  border-radius: 12px;
-  margin: 5px 10px;
-  padding: 0;
+    background: rgba(30, 30, 46, 0.95); /* Deep dark background (Catppuccin Mocha) */
+    border: 1px solid rgba(137, 180, 250, 0.3); /* Elegant faint blue border */
+    border-radius: 14px;
+    margin: 8px 12px;
+    padding: 12px;
 }
+
+/* Notification Inner Content */
 .notification-content {
-  padding: 10px;
+    background: transparent;
 }
 
-/* --- PHONG CÁCH GNOME QUICK SETTINGS --- */
+.summary {
+    font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #cdd6f4;
+}
+
+.body {
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    color: #bac2de;
+    margin-top: 4px;
+}
+
+.app-icon {
+    margin-right: 12px;
+}
+
+/* --- TỔNG THỂ BẢNG ĐIỀU KHIỂN --- */
+.control-center {
+    background: rgba(15, 23, 42, 0.95); /* Deep Navy */
+    border-radius: 18px;
+    border: 1px solid rgba(110, 231, 183, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* --- WIDGET LỊCH (CALENDAR) --- */
+.widget-calendar {
+    background: rgba(255, 255, 255, 0.03);
+    margin: 10px 15px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.widget-calendar > calendar {
+    background: transparent;
+    color: #E6EEF4;
+}
+
+/* Tiêu đề Tháng/Năm */
+.widget-calendar > calendar > header {
+    color: #60A5FA; /* Cool Blue */
+    font-weight: 800;
+    font-size: 1.1em;
+    padding-bottom: 10px;
+}
+
+/* Nút bấm ngày hiện tại (Today) */
+.widget-calendar > calendar > grid > button.today {
+    background: #6EE7B7; /* Mint Accent */
+    color: #0B1220;
+    font-weight: 800;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(110, 231, 183, 0.5);
+}
+
+/* Hiệu ứng khi rê chuột qua các ngày */
+.widget-calendar > calendar > grid > button:hover {
+    background: rgba(110, 231, 183, 0.2);
+    border-radius: 10px;
+}
+
+/* --- SLIDERS (VOLUME & BACKLIGHT) --- */
+/* Đồng bộ màu sắc với các icon 󰕾 và 󰃠 trong JSON */
+.widget-volume, .widget-backlight {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    margin: 5px 15px;
+    padding: 10px;
+}
+
+scale contents trough highlight {
+    background: linear-gradient(90deg, #60A5FA, #6EE7B7); /* Chuyển màu từ Blue sang Mint */
+}
+
+/* --- BUTTONS GRID (WIFI, BTOOTH, MODES) --- */
 .widget-buttons-grid {
-  font-size: 20px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 24px; /* Bo góc cực to kiểu GNOME */
-  background: @mantle;
+    margin: 10px 15px;
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 99px; /* Nút dạng viên thuốc (Pill shape) */
-  min-width: 140px; /* Chiều rộng lớn để chia làm 2 cột */
-  padding: 12px 10px;
-  margin: 6px;
-  color: @text;
-  border: 1px solid rgba(255, 255, 255, 0.02);
-  transition: all 0.2s ease-in-out;
+.widget-buttons-grid > button {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #94A3B8;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background: @blue; /* Rê chuột vào sẽ sáng xanh lên như GNOME */
-  color: @base;
-  box-shadow: 0px 0px 10px rgba(137, 180, 250, 0.5); /* Hiệu ứng tỏa sáng */
+/* Trạng thái đang bật (Checked) - Dành cho Perf, Bal, Saver */
+.widget-buttons-grid > button:checked {
+    background: linear-gradient(135deg, #6EE7B7, #34D399);
+    color: #0B1220;
+    box-shadow: 0 0 10px rgba(110, 231, 183, 0.4);
 }

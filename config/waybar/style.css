@@ -1,89 +1,217 @@
-/* --- COLOR PALETTE: CATPPUCCIN MOCHA --- */
-@define-color background rgba(30, 30, 46, 0.9);
-@define-color background-alt #11111B;
-@define-color foreground #CDD6F4;
-@define-color mint #A6E3A1; /* Green */
-@define-color blue #89B4FA; /* Blue */
-@define-color pink #F38BA8; /* Red/Pink */
-@define-color border-color rgba(205, 214, 244, 0.1);
-
+/* --- Global Settings --- */
 * {
+    font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    min-height: 0;
+    min-width: 0; /* Mandatory to allow the bar to shrink when placed vertically */
     border: none;
     border-radius: 0;
-    font-family: "MesloLGLDZ Nerd Font", sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    min-height: 0;
+    box-shadow: none;
 }
 
+/* --- The Unified Background Bar --- */
+/* Apply background and border to the ENTIRE bar instead of individual groups */
 window#waybar {
-    background-color: transparent;
+    background: rgba(30, 30, 46, 0.95); /* Unified dark background (Catppuccin) */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Unified border */
+    border-radius: 8px; /* Round the corners of the entire bar */
+    color: #cdd6f4;
+    transition: background-color 0.2s ease;
 }
 
-/* Floating Module Groups */
-.modules-left, .modules-center, .modules-right {
-    background-color: @background;
-    border: 1px solid @border-color;
-    border-radius: 14px; /* Bo tròn sâu hơn một chút */
+/* --- Container Styling --- */
+/* Make the groups transparent so they sit directly on the unified bar */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    border: none;
+}
+
+/* --- Base Styling for Items --- */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+    background: transparent;
+    color: #cdd6f4;
+    transition: all 0.2s ease;
+}
+
+/* Auto-align paddings for HORIZONTAL layout */
+.horizontal .modules-left > widget > *,
+.horizontal .modules-center > widget > *,
+.horizontal .modules-right > widget > * {
     padding: 2px 10px;
+    margin: 0; /* No margin needed when connected */
 }
 
-tooltip {
-    background: @background-alt;
-    border: 1px solid @blue;
-    border-radius: 10px;
+/* Auto-align paddings for VERTICAL layout */
+.vertical .modules-left > widget > *,
+.vertical .modules-center > widget > *,
+.vertical .modules-right > widget > * {
+    padding: 10px 2px;
+    margin: 0;
 }
-tooltip label { color: @foreground; }
 
-/* --- Modules Styling --- */
+/* --- Left Modules --- */
+#custom-launcher {
+    color: #89b4fa; /* Signature Arch Linux blue */
+    font-size: 15px;
+    border-radius: 8px 0 0 8px; /* Round the left edge */
+}
+.vertical #custom-launcher { border-radius: 8px 8px 0 0; }
+.horizontal #custom-launcher { padding-left: 14px; padding-right: 14px; }
+.vertical #custom-launcher { padding-top: 14px; padding-bottom: 14px; }
+
+#custom-launcher:hover {
+    color: #11111b;
+    background: #89b4fa;
+}
+
+/* --- Workspaces --- */
+#workspaces {
+    margin: 0;
+}
+
 #workspaces button {
-    color: #6C7086; /* Màu xám nhạt khi chưa active */
-    padding: 0 6px;
-    margin: 4px 2px;
-    border-radius: 8px;
+    color: #a6adc8;
+    border-radius: 6px; 
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.horizontal #workspaces button { padding: 0 8px; margin: 3px 2px; }
+.vertical #workspaces button { padding: 8px 0; margin: 2px 3px; }
+
 #workspaces button:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: @foreground;
+    background: rgba(255, 255, 255, 0.1);
+    color: #cdd6f4;
 }
+
+/* ACTIVE Workspace State */
 #workspaces button.active {
-    color: @background-alt;
-    background-color: @blue;
-}
-#workspaces button.urgent {
-    background-color: @pink;
-    color: @background-alt;
+    background: linear-gradient(135deg, #89b4fa, #74c7ec);
+    color: #11111b;
+    box-shadow: 0 0 10px rgba(137, 180, 250, 0.4);
 }
 
-
-#window, #clock, #battery, #pulseaudio, #network, #backlight {
-    color: @foreground;
-    padding: 0 8px;
-    margin: 4px 0;
+#window { 
+    color: #bac2de; 
+    padding-left: 8px;
+    padding-right: 14px;
 }
 
-/* Module Colors */
-#clock { color: #F5E0DC; }
-#battery { color: @mint; }
-#battery.warning { color: #FAB387; }
+/* --- Center Module --- */
+#clock { 
+    color: #f38ba8; 
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+.vertical #clock { margin: 0 3px; }
+
+#clock:hover { 
+    background: #f38ba8; 
+    color: #11111b;
+}
+
+/* --- Right Modules --- */
+#backlight { 
+    color: #f9e2af;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#backlight:hover {
+    background: #f9e2af;
+    color: #11111b;
+}
+#pulseaudio {
+    color: #89b4fa;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#pulseaudio:hover {
+    background: #89b4fa;
+    color: #11111b;
+}
+#network {
+    color: #cba6f7;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#network:hover {
+    background: #cba6f7;
+    color: #11111b;
+}
+
+/* Battery Handling */
+#battery { 
+    color: #a6e3a1;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#battery.warning {
+    color: #f9e2af;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
 #battery.critical:not(.charging) {
-    color: @pink;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.1);
+    animation: blink 1s linear infinite;
+    border-radius: 6px;
 }
+#battery.charging {
+    color: #a6e3a1;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+
+#battery:hover {
+    color: #11111b;
+    background: #a6e3a1;
+}
+
+#tray { padding: 0 5px; }
+
+/* Power Button */
+#custom-power {
+    color: #f38ba8;
+    font-size: 14px;
+    border-radius: 0 8px 8px 0; /* Round the right edge to match the main bar */
+}
+
+.vertical #custom-power {
+    border-radius: 0 0 8px 8px;
+}
+
+.horizontal #custom-power { padding-left: 12px; padding-right: 14px; }
+.vertical #custom-power { padding-top: 10px; padding-bottom: 14px; }
+
+#custom-power:hover {
+    background: #f38ba8;
+    color: #11111b;
+}
+
+/* --- Keybindings Cheat Sheet Button --- */
+#custom-keybinds {
+    color: #6EE7B7; /* Mint accent color */
+    font-size: 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Auto-align padding based on orientation */
+.horizontal #custom-keybinds { padding-left: 10px; padding-right: 12px; margin: 3px 2px; }
+.vertical #custom-keybinds { padding-top: 10px; padding-bottom: 12px; margin: 2px 3px; }
+
+/* Hover effect */
+#custom-keybinds:hover {
+    background: #6EE7B7;
+    color: #0B1220; /* Dark text on hover for contrast */
+    box-shadow: 0 0 8px rgba(110, 231, 183, 0.4);
+}
+
+/* --- Animations --- */
 @keyframes blink {
-    to { background-color: @pink; color: @background-alt; border-radius: 8px; }
+    50% { color: transparent; background: transparent; }
 }
-
-#pulseaudio { color: #CBA6F7; }
-#network { color: #89DCEB; }
-#backlight { color: #F9E2AF; }
-
-#custom-launcher { color: @blue; font-size: 15px; padding: 0 10px 0 6px; }
-#custom-notification { color: @foreground; padding: 0 8px; }
-#custom-expand-icon { color: #94E2D5; padding: 0 6px; margin: 2px 0; }
-#custom-power { color: @pink; padding: 0 6px 0 10px; font-size: 14px; }

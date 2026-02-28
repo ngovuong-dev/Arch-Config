@@ -4,6 +4,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
+/* Import the shared Deep Navy & Mint color palette */
 @import                         "~/.config/rofi/color.rasi"
 
 * {
@@ -13,152 +14,164 @@ configuration {
     background-colour:           var(background);
     foreground-colour:           var(foreground);
     alternate-background:        var(background-alt);
-    normal-background:           var(background);
+    normal-background:           transparent;
     normal-foreground:           var(foreground);
-    urgent-background:           var(urgent);
-    urgent-foreground:           var(background);
-    active-background:           var(active);
-    active-foreground:           var(background);
     selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
-    selected-urgent-background:  var(active);
-    selected-urgent-foreground:  var(background);
-    selected-active-background:  var(urgent);
-    selected-active-foreground:  var(background);
-    alternate-normal-background: var(background);
-    alternate-normal-foreground: var(foreground);
-    alternate-urgent-background: var(urgent);
-    alternate-urgent-foreground: var(background);
-    alternate-active-background: var(active);
-    alternate-active-foreground: var(background);
+    selected-normal-foreground:  var(background-alt); /* Dark text on Mint background */
 }
 
 /*****----- Main Window -----*****/
 window {
-    transparency:       "real";
-    location:           center;
-    anchor:             center;
-    fullscreen:         false;
-    width:              70%;
-    height:             55%;
-    border:             2px solid;
-    border-radius:      14px;
-    border-color:       @border-colour;
-    background-color:   @background-colour;
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    
+    /* Massive, immersive gallery size */
+    width:                      85%;
+    height:                     65%;
+    
+    /* FIX: Chỉ dùng số pixel cho độ dày viền */
+    border:                     2px;
+    border-radius:              20px; 
+    border-color:               @border-colour;
+    background-color:           @background-colour;
 }
 
 /*****----- Main Box -----*****/
 mainbox {
-    spacing:            12px;
-    padding:            18px;
-    border-radius:      8px;
-    background-color:   transparent;
-    children:           [ "inputbar", "listview", "message" ];
+    spacing:                    20px;
+    padding:                    35px; /* Generous outer breathing room */
+    background-color:           transparent;
+    children:                   [ "inputbar", "listview", "message" ];
 }
 
-/*****----- Inputbar -----*****/
+/*****----- Inputbar (Centered Pill-Shape) -----*****/
 inputbar {
-    spacing:            10px;
-    background-color:   transparent;
-    text-color:         @foreground-colour;
-    children:           [ "textbox-prompt-colon", "entry" ];
+    /* Squeeze the search bar to the center */
+    margin:                     0px 25% 10px 25%;
+    padding:                    12px 20px;
+    border-radius:              30px; /* Perfect pill shape */
+    background-color:           @alternate-background;
+    
+    /* FIX: Tách riêng border và border-color */
+    border:                     1px; 
+    border-color:               rgba(110, 231, 183, 0.3); /* Subtle mint glow */
+    
+    text-color:                 @foreground-colour;
+    spacing:                    15px;
+    children:                   [ "textbox-prompt-colon", "entry" ];
 }
 
 textbox-prompt-colon {
-    padding:            5px 0px;
-    expand:             false;
-    str:                " "; 
-    background-color:   inherit;
-    text-color:         inherit;
+    expand:                     false;
+    str:                        " "; 
+    font:                       "JetBrains Mono Nerd Font 14";
+    background-color:           transparent;
+    text-color:                 var(selected); /* Mint icon */
+    vertical-align:             0.5;
 }
 
 entry {
-    font:               "MesloLGLDZ Nerd Font Bold 11";
-    padding:            5px 0px;
-    background-color:   inherit;
-    text-color:         inherit;
-    cursor:             text;
-    placeholder:        " Search wallpapers...";
-    placeholder-color:  inherit;
+    font:                       "Inter 12";
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     text;
+    placeholder:                " Search wallpapers...";
+    placeholder-color:          #64748B; /* Slate gray */
+    vertical-align:             0.5;
 }
 
-/*****----- Listview (Grid Layout) -----*****/
+/*****----- Listview (Gallery Grid Layout) -----*****/
 listview {
-    columns:            4;
-    lines:              3;
-    cycle:              true;
-    dynamic:            true;
-    scrollbar:          true;
-    layout:             vertical;
-    fixed-height:       true;
-    fixed-columns:      true;
-    spacing:            18px;
-    background-color:   transparent;
-    text-color:         @foreground-colour;
-    cursor:             "default";
+    /* Expanded to 5 columns to utilize the wide window */
+    columns:                    5;
+    lines:                      3;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  true;
+    layout:                     vertical;
+    fixed-height:               true;
+    fixed-columns:              true;
+    
+    spacing:                    25px; /* Larger gap between images */
+    background-color:           transparent;
+    text-color:                 @foreground-colour;
+    cursor:                     "default";
 }
 
+/* Elegant scrollbar */
 scrollbar {
-    handle-width:       5px;
-    handle-color:       @handle-colour;
-    border-radius:      10px;
-    background-color:   @alternate-background;
+    handle-width:               6px;
+    handle-color:               @handle-colour;
+    border-radius:              10px;
+    background-color:           @alternate-background;
 }
 
-/*****----- Elements (Individual Wallpaper Items) -----*****/
+/*****----- Elements (Individual Wallpaper Cards) -----*****/
 element {
-    spacing:            10px;
-    padding:            10px;
-    border-radius:      12px;
-    background-color:   transparent;
-    text-color:         @foreground-colour;
-    cursor:             pointer;
-    orientation:        vertical;
+    orientation:                vertical; /* Image on top, text below */
+    spacing:                    15px;
+    padding:                    15px;
+    border-radius:              16px; /* Card border radius */
+    
+    /* Give each item a subtle card background */
+    background-color:           rgba(255, 255, 255, 0.02);
+    text-color:                 @foreground-colour;
+    cursor:                     pointer;
+    
+    /* FIX: Tách riêng border */
+    border:                     1px;
+    border-color:               transparent; 
 }
 
-/* Grouped normal and alternate states together for cleaner code */
-element normal.normal, element alternate.normal { 
-    background-color:   var(normal-background); 
-    text-color:         var(normal-foreground); 
-}
-
+/* Hover / Selected state */
 element selected.normal { 
-    background-color:   var(selected-normal-background); 
-    text-color:         var(selected-normal-foreground); 
+    background-color:           var(selected-normal-background); 
+    
+    /* FIX: Tách riêng border */
+    border:                     1px;
+    border-color:               var(selected);
+    
+    text-color:                 var(selected-normal-foreground); 
 }
 
-/* Thumbnail styling */
+/* The Wallpaper Thumbnail */
 element-icon {
-    background-color:   transparent;
-    text-color:         inherit;
-    size:               180px;
-    cursor:             inherit;
-    horizontal-align:   0.5;
-    border-radius:      10px;
+    background-color:           transparent;
+    text-color:                 inherit;
+    
+    /* Massive thumbnails for excellent preview visibility */
+    size:                       260px; 
+    cursor:                     inherit;
+    horizontal-align:           0.5;
+    border-radius:              10px; /* Round the image corners slightly */
 }
 
-/* Filename text styling */
+/* The Wallpaper Filename */
 element-text {
-    font:               "MesloLGLDZ Nerd Font 11";
-    background-color:   transparent;
-    text-color:         inherit;
-    highlight:          inherit;
-    cursor:             inherit;
-    vertical-align:     0.5;
-    horizontal-align:   0.5; 
+    font:                       "Inter 11";
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.5; /* Center the text under the image */
 }
 
-/*****----- Message Area (For Hints/Selections) -----*****/
+/*****----- Message Area -----*****/
 message {
-    padding:            10px 12px;
-    border-radius:      8px;
-    background-color:   @alternate-background;
-    text-color:         @foreground-colour;
+    margin:                     10px 0px 0px 0px;
+    padding:                    12px 15px;
+    border-radius:              10px;
+    background-color:           @alternate-background;
+    text-color:                 @foreground-colour;
 }
 
 textbox {
-    background-color:   inherit;
-    text-color:         inherit;
-    vertical-align:     0.5;
-    horizontal-align:   0.0;
+    font:                       "Inter 11";
+    background-color:           transparent;
+    text-color:                 inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
 }

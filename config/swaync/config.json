@@ -1,91 +1,86 @@
 {
-  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "$schema": "/etc/swaync/config.schema.json",
   "positionX": "right",
   "positionY": "top",
-  "control-center-margin-top": 10,
-  "control-center-margin-bottom": 10,
-  "control-center-margin-right": 10,
-  "control-center-margin-left": 10,
-  "control-center-width": 350,
-  "fit-to-screen": false,
-  "layer": "overlay",
-  "control-center-layer": "top",
-  "cssPriority": "user",
-  "notification-icon-size": 64,
-  "notification-body-image-height": 100,
-  "notification-body-image-width": 200,
-  "timeout": 10,
-  "timeout-low": 5,
+  "control-center-width": 340,
+  "control-center-margin-top": 8,
+  "control-center-margin-right": 8,
+  "control-center-margin-bottom": 8,
+  "notification-window-width": 300,
+  "transition-length": 150,
+  "timeout": 2,
+  "timeout-low": 2,
   "timeout-critical": 0,
+
   "widgets": [
-    "label",
-    "buttons-grid",
-    "volume",
-    "backlight",
-    "mpris",
     "title",
     "dnd",
+    "mpris",
+    "volume",
+    "backlight",
+    "buttons-grid",
+    "calendar",
     "notifications"
   ],
   "widget-config": {
-    "label": {
-      "max-lines": 1,
-      "text": "Center control"
+    "calendar": {
+      "show-event-dot": true,
+      "show-week-numbers": false
+    },
+    "title": {
+      "text": "Control Center",
+      "clear-all-button": true,
+      "button-text": "󰎟 Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
+    },
+    "backlight": {
+      "label": "󰃠"
     },
     "buttons-grid": {
       "actions": [
         {
-          "label": " ",
-          "command": "sh -c 'powerprofilesctl set power-saver && notify-send \"🔋 Pin\" \"Đã bật: Tiết kiệm năng lượng (Power Saver)\"'"
-        },
-        {
-          "label": " ",
-          "command": "sh -c 'powerprofilesctl set balanced && notify-send \"⚖️ CPU\" \"Đã bật: Cân bằng (Balanced)\"'"
-        },
-        {
-          "label": " ",
-          "command": "sh -c 'powerprofilesctl set performance && notify-send \"🚀 CPU\" \"Đã bật: Hiệu năng tối đa (Performance)\"'"
-        },
-        {
-          "label": " ",
+          "label": "󰖩 Wi-Fi",
           "command": "nm-connection-editor"
         },
         {
-          "label": " ",
+          "label": "󰂯 BTooth",
           "command": "blueman-manager"
         },
         {
-          "label": " ",
-          "command": "pavucontrol"
+          "label": "󰛨 Night",
+          "type": "toggle",
+          "command": "bash -c '~/.config/hypr/scripts/night_light.sh'",
+          "update-command": "pgrep -x wlsunset > /dev/null && echo true || echo false",
+          "interval": 1
         },
         {
-          "label": " ",
-          "command": "hyprshot -m region"
+          "label": "󰓅 Perf",
+          "type": "toggle",
+          "command": "bash -c '~/.config/hypr/scripts/power_mode.sh performance'",
+          "update-command": "powerprofilesctl get | grep -q performance && echo true || echo false",
+          "interval": 1
         },
         {
-          "label": " ",
-          "command": "hyprlock"
+          "label": "󰾆 Bal",
+          "type": "toggle",
+          "command": "bash -c '~/.config/hypr/scripts/power_mode.sh balanced'",
+          "update-command": "powerprofilesctl get | grep -q balanced && echo true || echo false",
+          "interval": 1
         },
         {
-          "label": " ",
-          "command": "~/.config/rofi/scripts/power-menu/power-menu.sh"
+          "label": "󰊰 Saver",
+          "type": "toggle",
+          "command": "bash -c '~/.config/hypr/scripts/power_mode.sh power-saver'",
+          "update-command": "powerprofilesctl get | grep -q power-saver && echo true || echo false",
+          "interval": 1
         }
       ]
-    },
-    "title": {
-      "text": "Notification",
-      "clear-all-button": true,
-      "button-text": "󰎟 Clear"
-    },
-    "volume": {
-      "label": " "
-    },
-    "backlight": {
-      "label": " "
-    },
-    "mpris": {
-      "image-size": 96,
-      "image-radius": 12
     }
   }
 }

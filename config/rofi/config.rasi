@@ -1,12 +1,12 @@
 /*****----- Configuration -----*****/
 configuration {
     modi:                       "drun,run,filebrowser,window";
-    font:                       "MesloLGLDZ Nerd Font 11"; /* Slightly larger font */
+    font:                       "MesloLGLDZ Nerd Font Bold 10"; /* Clean UI font */
     show-icons:                 true;
-    display-drun:               " Apps";
-    display-run:                " Run";
-    display-filebrowser:        " Files";
-    display-window:             " Windows";
+    display-drun:               "  Apps";
+    display-run:                "  Run";
+    display-filebrowser:        "  Files";
+    display-window:             "  Windows";
     drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
 }
@@ -15,8 +15,18 @@ configuration {
 @import                         "~/.config/rofi/color.rasi"
 
 * {
-    /* Color variable mappings */
-    border-colour:               var(selected);
+    /* Modern, subtle dark theme with soft accent colors */
+    background:     #0F172AE6; /* deep navy, slight translucency */
+    background-alt: #0B1220FF; /* darker alt */
+    foreground:     #E6EEF4FF; /* soft off-white */
+    selected:       #6EE7B7FF; /* mint accent */
+    active:         #60A5FAFF; /* cool blue */
+    urgent:         #FB7185FF; /* warm pink for errors */
+
+    border-colour:  var(selected);
+    background-color: transparent;
+
+    /* Structural mappings required by Rofi components */
     handle-colour:               var(selected);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
@@ -28,17 +38,7 @@ configuration {
     active-background:           var(active);
     active-foreground:           var(background);
     selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
-    selected-urgent-background:  var(active);
-    selected-urgent-foreground:  var(background);
-    selected-active-background:  var(urgent);
-    selected-active-foreground:  var(background);
-    alternate-normal-background: var(background);
-    alternate-normal-foreground: var(foreground);
-    alternate-urgent-background: var(urgent);
-    alternate-urgent-foreground: var(background);
-    alternate-active-background: var(active);
-    alternate-active-foreground: var(background);
+    selected-normal-foreground:  var(background-alt); /* Dark text on mint background */
 }
 
 /*****----- Main Window -----*****/
@@ -47,14 +47,11 @@ window {
     location:                   center;
     anchor:                     center;
     fullscreen:                 false;
-    width:                      45%; /* Slightly more compact */
-    x-offset:                   0px;
-    y-offset:                   0px;
-
-    /* Adding padding to create an inner border effect */
-    padding:                    20px; 
+    width:                      40%; /* Compact and elegant */
+    
+    /* Overall window styling */
     border:                     2px solid;
-    border-radius:              16px; /* Smooth, modern corners */
+    border-radius:              16px;
     border-color:               @border-colour;
     background-color:           @background-colour;
     cursor:                     "default";
@@ -62,53 +59,66 @@ window {
 
 /*****----- Main Box -----*****/
 mainbox {
-    spacing:                    15px; /* Better breathing room between sections */
     background-color:           transparent;
-    /* Moved mode-switcher to the bottom for a cleaner look */
-    children:                   [ "inputbar", "message", "listview", "mode-switcher" ];
+    /* No padding here so the image banner touches the top and sides perfectly */
+    children:                   [ "inputbar", "listview", "mode-switcher" ];
 }
 
-/*****----- Inputbar -----*****/
+/*****----- Inputbar (The Image Banner Header) -----*****/
 inputbar {
+    /* Huge top padding to create the banner height */
+    padding:                    80px 30px 20px 30px; 
+    
+    /* Load the currently active wallpaper from your custom path */
+    background-image:           url("~/.cache/current_wallpaper", width);
+    
+    background-color:           transparent;
     spacing:                    15px;
-    padding:                    15px 20px; /* Thicker, floating search bar look */
-    border-radius:              12px;
-    background-color:           @alternate-background; /* Contrast against main bg */
-    text-color:                 @foreground-colour;
     children:                   [ "textbox-prompt-colon", "entry" ];
 }
 
+/* The Search Icon */
 textbox-prompt-colon {
     expand:                     false;
     str:                        "";
-    font:                       "MesloLGLDZ Nerd Font 14";
-    background-color:           inherit;
-    text-color:                 inherit;
+    font:                       "JetBrains Mono Nerd Font 14";
+    
+    /* Solid background so it stands out against the wallpaper */
+    background-color:           @alternate-background;
+    text-color:                 @active; /* Cool blue icon */
+    padding:                    12px 17px;
+    border-radius:              10px;
     vertical-align:             0.5;
 }
 
+/* The Search Input Field */
 entry {
-    background-color:           inherit;
-    text-color:                 inherit;
+    /* Solid background for readability over the image */
+    background-color:           @alternate-background;
+    text-color:                 @foreground-colour;
+    padding:                    12px 20px;
+    border-radius:              10px;
     cursor:                     text;
-    placeholder:                "Search applications...";
-    placeholder-color:          #64748B; /* Soft slate gray */
+    placeholder:                " Search applications...";
+    placeholder-color:          #64748B;
     vertical-align:             0.5;
 }
 
 /*****----- Listview -----*****/
 listview {
     columns:                    1;
-    lines:                      7; /* Slightly fewer lines so it isn't overwhelmingly tall */
+    lines:                      6; /* Balanced height */
     cycle:                      true;
     dynamic:                    true;
-    scrollbar:                  false; /* Hidden for a cleaner minimal look */
+    scrollbar:                  false;
     layout:                     vertical;
     reverse:                    false;
     fixed-height:               true;
     fixed-columns:              true;
     
-    spacing:                    8px; /* Space between list items */
+    /* Internal spacing and padding */
+    spacing:                    8px;
+    padding:                    20px; /* Padding added back here */
     background-color:           transparent;
     text-color:                 @foreground-colour;
     cursor:                     "default";
@@ -117,7 +127,7 @@ listview {
 /*****----- Elements -----*****/
 element {
     spacing:                    15px;
-    padding:                    10px 15px; /* Taller, more clickable elements */
+    padding:                    10px 15px;
     border-radius:              10px;
     background-color:           transparent;
     text-color:                 @foreground-colour;
@@ -131,13 +141,13 @@ element normal.normal, element alternate.normal {
 
 element selected.normal {
     background-color:           var(selected-normal-background);
-    text-color:                 var(background-alt); /* Dark text on bright accent for readability */
+    text-color:                 var(selected-normal-foreground);
 }
 
 element-icon {
     background-color:           transparent;
     text-color:                 inherit;
-    size:                       32px; /* Larger, more beautiful icons */
+    size:                       32px; /* Crisp, large icons */
     cursor:                     inherit;
 }
 
@@ -151,13 +161,14 @@ element-text {
 }
 
 /*****----- Mode Switcher -----*****/
-mode-switcher{
+mode-switcher {
     spacing:                    15px;
+    padding:                    0px 20px 20px 20px; /* Padding for the bottom section */
     background-color:           transparent;
 }
 
 button {
-    padding:                    12px 20px;
+    padding:                    10px 15px;
     border-radius:              10px;
     background-color:           @alternate-background;
     text-color:                 @foreground-colour;
@@ -166,20 +177,5 @@ button {
 
 button selected {
     background-color:           var(selected-normal-background);
-    text-color:                 var(background-alt);
-}
-
-/*****----- Message -----*****/
-message {
-    padding:                    12px;
-    border-radius:              10px;
-    background-color:           @alternate-background;
-    text-color:                 @foreground-colour;
-}
-
-textbox {
-    background-color:           inherit;
-    text-color:                 inherit;
-    vertical-align:             0.5;
-    horizontal-align:           0.0;
+    text-color:                 var(selected-normal-foreground);
 }
