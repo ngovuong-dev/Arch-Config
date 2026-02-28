@@ -79,6 +79,18 @@
           "command": "bash -c '~/.config/hypr/scripts/power_mode.sh power-saver'",
           "update-command": "powerprofilesctl get | grep -q power-saver && echo true || echo false",
           "interval": 1
+        },
+        {
+          "label": "󰌵 Power Save",
+          "command": "~/.config/hypr/scripts/power_save_toggle.sh"
+        },
+        {
+          "label": "󰍹 Monitor",
+          "command": "nwg-display"
+        },
+        {
+          "label": "󰏘 Theme",
+          "command": "nwg-look"
         }
       ]
     }
