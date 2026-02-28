@@ -22,10 +22,9 @@ GNOME_LITE=(
 
     # --- Critical System Settings (Hardware Control) ---
     "gnome-control-center"    # The main Settings app (Wifi, Bluetooth, Display)
-    "gnome-menus"             # Category management for apps
+
 
     # --- Essential Services (The "Backbone") ---
-    "nautilus"                # Default file manager (Good for dragging files)
     "gnome-keyring"           # Auto-unlock passwords for WiFi/GitHub
     "xdg-user-dirs-gtk"       # Creates Downloads, Documents, etc.
     "networkmanager"          # Core network service
