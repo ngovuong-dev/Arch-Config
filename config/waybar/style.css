@@ -5,7 +5,6 @@
     font-weight: 700;
     min-height: 0;
     min-width: 0; /* Mandatory to allow the bar to shrink when placed vertically */
-    border: none;
     border-radius: 0;
     box-shadow: none;
 }
@@ -14,8 +13,8 @@
 /* Apply background and border to the ENTIRE bar instead of individual groups */
 window#waybar {
     background: rgba(30, 30, 46, 0.95); /* Unified dark background (Catppuccin) */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Unified border */
-    border-radius: 8px; /* Round the corners of the entire bar */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Unified border */
+    border-radius: 10px; /* Round the corners of the entire bar */
     color: #cdd6f4;
     transition: background-color 0.2s ease;
 }
@@ -197,6 +196,8 @@ window#waybar {
     color: #6EE7B7; /* Mint accent color */
     font-size: 12px;
     transition: all 0.2s ease;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
 }
 
 /* Auto-align padding based on orientation */
