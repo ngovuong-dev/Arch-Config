@@ -23,12 +23,6 @@ HYPR_PACKAGES=(
     "qt5-wayland" "qt6-wayland"    # Ensures Qt5/Qt6 apps run natively on Wayland
 
     # --- Thunar File Manager & Enhanced Plugins (Dolphin-like features) ---
-    "thunar"                       # Lightweight GTK file manager
-    "thunar-archive-plugin"        # Adds "Extract here" & "Compress" to context menu
-    "thunar-volman"                # Automatic management of removable drives
-    "tumbler"                      # D-Bus service for generating file thumbnails
-    "ffmpegthumbnailer"            # Video thumbnail support for Thunar
-    "thunar-media-tags-plugin"     # View/Edit media metadata in Thunar
     "gvfs" "gvfs-mtp"              # Trash support, network mounting, and mobile devices
 
     # --- Desktop Environment & UI Components ---
@@ -40,14 +34,13 @@ HYPR_PACKAGES=(
 
     # --- System Infrastructure & Hardware Integration ---
     "kitty"                        # GPU-accelerated terminal emulator
-    "polkit-gnome"             # Provides graphical password prompts (Auth)
+    "polkit-gnome"                 # Provides graphical password prompts (Auth)
     "wl-clipboard" "cliphist"      # System clipboard manager and history
     "hyprshot"                     # Efficient screenshot tool tailored for Hyprland
     "brightnessctl"                # CLI for controlling display brightness
     "pavucontrol"                  # GUI for PulseAudio/Pipewire volume management
     "network-manager-applet"       # System tray icon for WiFi/Network control
     "blueman"                      # GUI for managing Bluetooth connections
-    "udiskie"                      # Auto-mounting daemon for removable media
     "libnotify"                    # Core library for sending desktop notifications
     "wlsunset"                     # Night light/Blue light filter for Wayland
 )

@@ -33,9 +33,11 @@ ESSENTIAL_TOOLS=(
   "gnome-calendar"       # Event management
   "gnome-clocks"         # Alarm, Timer, Stopwatch
   "loupe"                # Modern, fast image viewer
-  "amberol"              # Minimalist music player (Replaces Elisa)
+  "decibels"             # Minimalist music player (Replaces Elisa)
   "gnome-sound-recorder" # GNOME audio recorder (Replaces KRecorder)
-  "mpv"                  # Best video player for Hyprland
+  "showtime"             # Best video player for Hyprland
+  "snapshot"		 # Camera
+
 
   # 4. Desktop UI & Theme Engine
   "nwg-displays"              # Monitor layout manager
