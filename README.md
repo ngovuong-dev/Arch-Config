@@ -51,16 +51,54 @@ git clone https://github.com/ngovuong-dev/Arch-Config.git
 cd Arch-Config
 chmod +x install/*.sh
 ```
+
 ## ⌨️ Phím tắt mặc định (Keybindings)
 
-Tổ hợp phím,Hành động
-***SUPER + Return**,Mở Terminal (Kitty)
-***SUPER + Q**,Đóng cửa sổ hiện tại (Kill)
-***SUPER + E**,Quản lý tệp tin (Thunar/Nautilus)
-***SUPER + A**,Tìm kiếm và khởi chạy ứng dụng
-***SUPER + W**,Chuyển đổi trạng thái cửa sổ nổi (Floating)
-***SUPER + O/P**,Chuyển đổi tiêu điểm giữa các cửa sổ
-***SUPER + Shift + Alt + Del**,Thoát phiên làm việc (Logout)
+Hệ thống phím tắt được thiết kế tối ưu cho workflow năng suất cao.
+
+### 🚀 Thao tác ứng dụng & Hệ thống
+| Phím tắt | Hành động |
+| :--- | :--- |
+| <kbd>󰞷 SUPER</kbd> + <kbd>Return</kbd> | Mở Terminal (**Kitty**) |
+| <kbd>󰉋 SUPER</kbd> + <kbd>E</kbd> | Quản lý file (**Nautilus**) |
+| <kbd>󰍉 SUPER</kbd> + <kbd>A</kbd> | Menu ứng dụng (**Rofi**) |
+| <kbd>󰓇 SUPER</kbd> + <kbd>F</kbd> | Chạy app bằng card **NVIDIA** (Prime) |
+| <kbd>󰈹 ALT</kbd> + <kbd>Tab</kbd> | Chuyển đổi cửa sổ (**Rofi Window**) |
+| <kbd>󰅖 SUPER</kbd> + <kbd>Q</kbd> / <kbd>F4</kbd> | Đóng cửa sổ đang chọn |
+| <kbd>󰊓 F11</kbd> | Toàn màn hình (**Fullscreen**) |
+| <kbd>󰅏 SUPER</kbd> + <kbd>V</kbd> | Quản lý Clipboard (Lịch sử copy) |
+| <kbd>󰂚 SUPER</kbd> + <kbd>N</kbd> | Trung tâm thông báo (**SwayNC**) |
+
+### 🖼️ Quản lý cửa sổ & Workspace
+| Phím tắt | Hành động |
+| :--- | :--- |
+| <kbd>󰏫 SUPER</kbd> + <kbd>W</kbd> | Bật/Tắt cửa sổ nổi (**Floating**) |
+| <kbd>󰒲 SUPER</kbd> + <kbd>S</kbd> | Ẩn nhanh vào ngăn kéo (**Minimize**) |
+| <kbd>󰇄 SUPER</kbd> + <kbd>`</kbd> | Mở ngăn kéo bí mật (**Special Workspace**) |
+| <kbd>󰂫 SUPER</kbd> + <kbd>O</kbd> | Đổi hướng chia cửa sổ (**Togglesplit**) |
+| <kbd>󰡨 SUPER</kbd> + <kbd>Tab</kbd> | Quay lại Workspace vừa dùng |
+| <kbd>󰎧 SUPER</kbd> + <kbd>1-0</kbd> | Chuyển nhanh giữa các Workspace |
+| <kbd>󰚀 SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>1-0</kbd> | Di chuyển cửa sổ tới Workspace chỉ định |
+| <kbd>󰚀 SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>↓</kbd> | Tìm Workspace trống đầu tiên |
+
+### 📸 Chụp màn hình & Media
+| Phím tắt | Hành động |
+| :--- | :--- |
+| <kbd>󰄀 SHIFT</kbd> + <kbd>ALT</kbd> + <kbd>S</kbd> | Chụp ảnh vùng màn hình |
+| <kbd>󰄀 SHIFT</kbd> + <kbd>Print</kbd> | Chụp ảnh cửa sổ |
+| <kbd>󰄀 SUPER</kbd> + <kbd>Print</kbd> | Chụp toàn bộ màn hình |
+| <kbd>󰃠 SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd> | Cấu hình màn hình (Display Settings) |
+
+### 🔒 Bảo mật & Nguồn
+| Phím tắt | Hành động |
+| :--- | :--- |
+| <kbd>󰸉 S+C+A</kbd> + <kbd>Ins</kbd> | Chọn hình nền ngẫu nhiên |
+| <kbd>󰌾 S+C+A</kbd> + <kbd>L</kbd> | Khóa màn hình (**Hyprlock**) |
+| <kbd>󰐥 S+C+A</kbd> + <kbd>Del</kbd> | Thoát Hyprland (Logout) |
+| <kbd>󰐥 S+C+A</kbd> + <kbd>Pause</kbd> | Menu Nguồn (**Power Menu**) |
+
+> **Ghi chú:** `S+C+A` là tổ hợp <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>ALT</kbd>.
+---
 
 ## 🌡️ Lưu ý cho Laptop (Performance & Thermal)
 ```bash
