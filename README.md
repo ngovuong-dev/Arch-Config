@@ -10,7 +10,7 @@
 
 ## 📸 Tổng quan giao diện (Screenshots)
 *(Chèn ảnh màn hình của bạn vào đây để repo trông bắt mắt hơn)*
-![Desktop Preview](https://via.placeholder.com/800x450?text=Insert+Your+Hyprland+Screenshot+Here)
+![Desktop Preview](https://via.placeholder.com/800x450?text=preview/preview_01.png)
 
 ---
 
