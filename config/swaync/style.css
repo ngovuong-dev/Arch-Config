@@ -6,16 +6,15 @@
 
 /* --- Main Window --- */
 .control-center {
-    background: rgba(30, 30, 46, 0.95);
+    background: rgba(30, 30, 46, 0.98);
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #cdd6f4;
 }
 
 /* --- Title & DND --- */
 .widget-title { margin: 12px 12px 5px 12px; font-size: 16px; font-weight: 800; }
 .widget-title > button { background: #f38ba8; color: #11111b; border-radius: 8px; padding: 5px 12px; transition: all 0.2s; }
-.widget-title > button:hover { background: #eba0ac; box-shadow: 0 0 8px rgba(243, 139, 168, 0.4); }
+.widget-title > button:hover { background: #eba0ac; box-shadow: 0 0 8px rgba(243, 139, 168, 0.5); }
 
 .widget-dnd { margin: 0px 12px 10px 12px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 8px 12px; }
 .widget-dnd > switch:checked { background: #89b4fa; border-radius: 8px; }

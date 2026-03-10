@@ -86,7 +86,7 @@
         },
         {
           "label": "󰍹 Monitor",
-          "command": "nwg-display"
+          "command": "nwg-displays"
         },
         {
           "label": "󰏘 Theme",

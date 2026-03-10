@@ -35,12 +35,14 @@
     },
 
     "hyprland/workspaces": {
-	"on-click": "activate",
-	"format": "{icon}",
-	"format-icons": {
-	"default": "",
-	    "1": "1",
-	    "2": "2",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
 	    "3": "3",
 	    "4": "4",
 	    "5": "5",
@@ -48,14 +50,14 @@
 	    "7": "7",
 	    "8": "8",
 	    "9": "9",
-	    "10": "0",
-	    "active": "󱓻"
-	},
+	    "10": "0", 
+            "active": "󱓻"
+        }
     },
 
     "hyprland/window": {
         "format": "{}",
-        "max-length": 15,
+        "max-length": 10,
         "rewrite": {
             "(.*) - Mozilla Firefox": "󰈹  $1",
             "(.*) - Visual Studio Code": "󰨞  $1",
@@ -64,9 +66,10 @@
     },
     
     "clock": {
+        "interval": 60,
         "format": "  {:%H:%M |  %d %b}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "on-click": "swaync-client -t -sw" 
+        "on-click": "swaync-client -t -sw"
     },
 
     "backlight": {
@@ -81,6 +84,8 @@
         "format": "{icon} {volume}%",
         "format-muted": "󰝟 Muted",
         "on-click": "pavucontrol",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -89,19 +94,21 @@
             "portable": "",
             "car": "",
             "default": ["", " ", " "]
-        }
+         } 
     },
 
     "network": {
+        "interval": 10,
         "format-wifi": "  {essid}",
         "format-ethernet": "󰈀  Wired",
         "tooltip-format": "{essid} - {ifname} via {gwaddr}",
         "format-linked": "󰈀  {ifname} (No IP)",
         "format-disconnected": "⚠  Disconnected",
-        "format-alt": "{ifname} {signalStrength}%: {ipaddr}/{cidr}  "
+        "format-alt": "{ifname} {signalStrength}%: {ipaddr}/{cidr}"
     },
 
     "battery": {
+        "interval": 60,
         "states": {
             "warning": 30,
             "critical": 15

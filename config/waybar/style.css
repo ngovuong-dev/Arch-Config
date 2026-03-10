@@ -12,7 +12,7 @@
 /* --- The Unified Background Bar --- */
 /* Apply background and border to the ENTIRE bar instead of individual groups */
 window#waybar {
-    background: rgba(30, 30, 46, 0.95); /* Unified dark background (Catppuccin) */
+    background: rgba(30, 30, 46, 1.0); /* Unified dark background (Catppuccin) */
     border: 2px solid rgba(255, 255, 255, 0.1); /* Unified border */
     border-radius: 10px; /* Round the corners of the entire bar */
     color: #cdd6f4;
