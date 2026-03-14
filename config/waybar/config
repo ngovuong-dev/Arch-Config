@@ -43,14 +43,14 @@
             "default": "",
             "1": "1",
             "2": "2",
-	    "3": "3",
-	    "4": "4",
-	    "5": "5",
-	    "6": "6",
-	    "7": "7",
-	    "8": "8",
-	    "9": "9",
-	    "10": "0", 
+    	    "3": "3",
+	        "4": "4",
+	        "5": "5",
+	        "6": "6",
+	        "7": "7",
+	        "8": "8",
+	        "9": "9",
+	        "10": "0", 
             "active": "󱓻"
         }
     },
@@ -61,15 +61,34 @@
         "rewrite": {
             "(.*) - Mozilla Firefox": "󰈹  $1",
             "(.*) - Visual Studio Code": "󰨞  $1",
-            "(.*) - Kitty": "  $1"
+            "(.*) - foot": "  $1"
         }
     },
     
     "clock": {
-        "interval": 60,
+	"interval": 60,
         "format": "  {:%H:%M |  %d %b}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "on-click": "swaync-client -t -sw"
+        "on-click": "swaync-client -t -sw",
+        // Tích hợp Lịch nâng cao vào Waybar
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#bac2de'><b>{}</b></span>",
+                "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks":      "<span color='#89b4fa'><b>W{}</b></span>",
+                "weekdays":   "<span color='#f9e2af'><b>{}</b></span>",
+                "today":      "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
 
     "backlight": {
@@ -84,8 +103,8 @@
         "format": "{icon} {volume}%",
         "format-muted": "󰝟 Muted",
         "on-click": "pavucontrol",
-        "on-scroll-up": "pamixer -i 2",
-        "on-scroll-down": "pamixer -d 2",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -104,7 +123,9 @@
         "tooltip-format": "{essid} - {ifname} via {gwaddr}",
         "format-linked": "󰈀  {ifname} (No IP)",
         "format-disconnected": "⚠  Disconnected",
+        "format-disabled": "  Airplane Mode",
         "format-alt": "{ifname} {signalStrength}%: {ipaddr}/{cidr}"
+
     },
 
     "battery": {

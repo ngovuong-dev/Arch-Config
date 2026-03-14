@@ -1,175 +1,172 @@
+/* =========================================================
+   CATPPUCCIN MOCHA GREEN - MINIMALIST EDITION
+   ========================================================= */
+@define-color base      #1e1e2e;
+@define-color crust     #11111b;
+@define-color text      #cdd6f4;
+@define-color subtext0  #a6adc8;
+@define-color subtext1  #bac2de;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color surface2  #585b70;
+@define-color green     #a6e3a1; /* Solid Minimalist Accent */
+@define-color red       #f38ba8;
+
 /* --- Global Settings --- */
 * {
-    font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
     font-size: 13px;
+    box-shadow: none; /* Force remove all shadows globally */
 }
 
-/* --- Main Window --- */
+/* --- Main Window (Control Center) --- */
 .control-center {
-    background: rgba(30, 30, 46, 0.98);
-    border-radius: 18px;
-    color: #cdd6f4;
+    background: @base; /* Flat solid background */
+    border: 1px solid @surface0; 
+    border-radius: 12px; /* Sharper corners */
+    color: @text;
 }
 
-/* --- Title & DND --- */
-.widget-title { margin: 12px 12px 5px 12px; font-size: 16px; font-weight: 800; }
-.widget-title > button { background: #f38ba8; color: #11111b; border-radius: 8px; padding: 5px 12px; transition: all 0.2s; }
-.widget-title > button:hover { background: #eba0ac; box-shadow: 0 0 8px rgba(243, 139, 168, 0.5); }
+/* --- Title & DND (Do Not Disturb) --- */
+.widget-title { 
+    margin: 15px 15px 5px 15px; 
+    font-size: 15px; 
+    font-weight: 700; 
+    color: @text;
+}
 
-.widget-dnd { margin: 0px 12px 10px 12px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 8px 12px; }
-.widget-dnd > switch:checked { background: #89b4fa; border-radius: 8px; }
+.widget-title > button { 
+    background: transparent; 
+    color: @subtext1; 
+    border-radius: 6px; 
+    padding: 4px 10px; 
+    transition: background 0.2s; 
+}
+
+.widget-title > button:hover { 
+    background: @surface0; 
+    color: @red; 
+}
+
+.widget-dnd { 
+    margin: 0px 15px 10px 15px; 
+    background: transparent; /* Remove container background for flat look */
+    padding: 8px 0px; 
+}
+
+/* Switch styling - Flat & Minimal */
+.widget-dnd > switch {
+    background: @surface0;
+    border-radius: 8px;
+    border: 1px solid @surface0;
+}
+
+.widget-dnd > switch slider {
+    background: @subtext1;
+    border-radius: 6px;
+}
+
+.widget-dnd > switch:checked {
+    background: @green; 
+    border: 1px solid @green;
+}
+
+.widget-dnd > switch:checked slider {
+    background: @crust; 
+}
 
 /* --- MPRIS (Media Player) --- */
-.widget-mpris { background: rgba(255, 255, 255, 0.03); border-radius: 12px; margin: 5px 12px; padding: 10px; }
-.widget-mpris player { border-radius: 10px; }
-
-/* --- Sliders (Volume & Brightness) --- */
-.widget-volume, .widget-backlight { background: rgba(255, 255, 255, 0.03); padding: 8px 12px; margin: 6px 12px; border-radius: 12px; }
-scale contents trough highlight { background: linear-gradient(90deg, #89b4fa, #b4befe); border-radius: 8px; }
-scale contents trough { background: rgba(255, 255, 255, 0.06); border-radius: 8px; min-height: 8px; }
-
-/* --- Compact 3x2 Buttons Grid --- */
-.widget-buttons-grid {
-    margin: 8px 12px;
+.widget-mpris { 
+    background: @surface0; 
+    border-radius: 8px; 
+    margin: 5px 15px; 
+    padding: 10px; 
 }
 
-/* INACTIVE STATE */
+.widget-mpris player { 
+    border-radius: 6px; 
+}
+
+/* --- Sliders (Volume & Brightness) --- */
+.widget-volume, .widget-backlight { 
+    background: transparent; /* No container background */
+    padding: 4px 15px; 
+    margin: 6px 0; 
+}
+
+/* Thinner, solid color sliders */
+scale contents trough highlight { 
+    background: @green; /* Solid color, no gradient */
+    border-radius: 4px; 
+}
+
+scale contents trough { 
+    background: @surface0; 
+    border-radius: 4px; 
+    min-height: 4px; /* Thinner slider line */
+}
+
+/* --- Ultra Compact Quick Settings (4 Columns) --- */
+.widget-buttons-grid {
+    margin: 10px 15px; 
+    font-size: 11px;  
+}
+
+/* Flat Default State */
 .widget-buttons-grid > button {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid transparent;
-    border-radius: 12px;
-    margin: 4px;
-    padding: 12px 5px; /* Optimal height for 6 buttons */
-    color: #a6adc8; 
-    transition: all 0.2s ease-in-out;
+    background: @surface0; 
+    border: 1px solid transparent; /* No visible border until hover */
+    border-radius: 6px; /* Sharper buttons */
+    margin: 3px;
+    padding: 10px 2px; 
+    min-width: 68px; 
+    color: @subtext1; 
+    font-weight: 600;
+    transition: all 0.15s ease;
 }
 
 .widget-buttons-grid > button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #cdd6f4;
+    background: @surface1;
+    color: @text;
 }
 
-/* --- ACTIVE STATE (Glowing, Highlighted & 3D Tactile) --- */
+/* Flat Active State */
 .widget-buttons-grid > button:checked {
-    /* Smooth gradient using your Mint accent colors */
-    background: linear-gradient(135deg, #6EE7B7, #34D399); 
-    
-    /* Dark navy text for maximum contrast and readability */
-    color: #0B1220; 
-    font-weight: 800; /* Extra bold to pop out */
-    
-    /* Crisp, slightly brighter mint border */
-    border: 1px solid #A7F3D0; 
-    
-
+    background: @green; 
+    color: @crust; 
+    font-weight: 700; 
+    border: 1px solid @green;
 }
 
 /* --- Notifications --- */
 .notification {
-    background: rgba(30, 30, 46, 0.95); /* Deep dark background (Catppuccin Mocha) */
-    border: 1px solid rgba(137, 180, 250, 0.3); /* Elegant faint blue border */
-    border-radius: 14px;
-    margin: 8px 12px;
+    background: @base;
+    border: 1px solid @surface0;
+    border-radius: 8px; /* Sharp and clean */
+    margin: 8px 15px;
     padding: 12px;
 }
 
-/* Notification Inner Content */
+.notification:hover {
+    border: 1px solid @surface1; /* Very subtle hover effect */
+}
+
 .notification-content {
     background: transparent;
 }
 
 .summary {
-    font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    color: #cdd6f4;
+    font-size: 13px;
+    font-weight: 700;
+    color: @text;
 }
 
 .body {
-    font-family: "Inter", sans-serif;
-    font-size: 11px;
-    color: #bac2de;
+    font-size: 12px;
+    color: @subtext1;
     margin-top: 4px;
 }
 
 .app-icon {
     margin-right: 12px;
-}
-
-/* --- TỔNG THỂ BẢNG ĐIỀU KHIỂN --- */
-.control-center {
-    background: rgba(15, 23, 42, 0.95); /* Deep Navy */
-    border-radius: 18px;
-    border: 1px solid rgba(110, 231, 183, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-/* --- WIDGET LỊCH (CALENDAR) --- */
-.widget-calendar {
-    background: rgba(255, 255, 255, 0.03);
-    margin: 10px 15px;
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.widget-calendar > calendar {
-    background: transparent;
-    color: #E6EEF4;
-}
-
-/* Tiêu đề Tháng/Năm */
-.widget-calendar > calendar > header {
-    color: #60A5FA; /* Cool Blue */
-    font-weight: 800;
-    font-size: 1.1em;
-    padding-bottom: 10px;
-}
-
-/* Nút bấm ngày hiện tại (Today) */
-.widget-calendar > calendar > grid > button.today {
-    background: #6EE7B7; /* Mint Accent */
-    color: #0B1220;
-    font-weight: 800;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(110, 231, 183, 0.5);
-}
-
-/* Hiệu ứng khi rê chuột qua các ngày */
-.widget-calendar > calendar > grid > button:hover {
-    background: rgba(110, 231, 183, 0.2);
-    border-radius: 10px;
-}
-
-/* --- SLIDERS (VOLUME & BACKLIGHT) --- */
-/* Đồng bộ màu sắc với các icon 󰕾 và 󰃠 trong JSON */
-.widget-volume, .widget-backlight {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    margin: 5px 15px;
-    padding: 10px;
-}
-
-scale contents trough highlight {
-    background: linear-gradient(90deg, #60A5FA, #6EE7B7); /* Chuyển màu từ Blue sang Mint */
-}
-
-/* --- BUTTONS GRID (WIFI, BTOOTH, MODES) --- */
-.widget-buttons-grid {
-    margin: 10px 15px;
-}
-
-.widget-buttons-grid > button {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    color: #94A3B8;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-/* Trạng thái đang bật (Checked) - Dành cho Perf, Bal, Saver */
-.widget-buttons-grid > button:checked {
-    background: linear-gradient(135deg, #6EE7B7, #34D399);
-    color: #0B1220;
-    box-shadow: 0 0 10px rgba(110, 231, 183, 0.4);
 }

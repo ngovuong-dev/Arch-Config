@@ -19,30 +19,30 @@ echo -e "${BLUE}====================================================${NC}\n"
 HYPR_PACKAGES=(
     # --- Core Compositor & Wayland Protocols ---
     "hyprland"                    # Core Wayland compositor (Main environment)
-    "xdg-desktop-portal-hyprland"  # Crucial for screen sharing and app communication
-    "qt5-wayland" "qt6-wayland"    # Ensures Qt5/Qt6 apps run natively on Wayland
+    "xdg-desktop-portal-hyprland" # Crucial for screen sharing and app communication
+    "qt5-wayland" "qt6-wayland"   # Ensures Qt5/Qt6 apps run natively on Wayland
 
     # --- Thunar File Manager & Enhanced Plugins (Dolphin-like features) ---
-    "gvfs" "gvfs-mtp"              # Trash support, network mounting, and mobile devices
+    "gvfs" "gvfs-mtp" # Trash support, network mounting, and mobile devices
 
     # --- Desktop Environment & UI Components ---
-    "waybar"                       # Highly customizable status bar
-    "rofi-wayland"                 # Dynamic application launcher & menu
-    "swaync"                       # Notification daemon with built-in control center
-    "swww"                         # High-performance wallpaper daemon (animated)
-    "hyprlock" "hypridle"          # Modern screen locking and idle/sleep management
+    "waybar"              # Highly customizable status bar
+    "rofi-wayland"        # Dynamic application launcher & menu
+    "swaync"              # Notification daemon with built-in control center
+    "swww"                # High-performance wallpaper daemon (animated)
+    "hyprlock" "hypridle" # Modern screen locking and idle/sleep management
 
     # --- System Infrastructure & Hardware Integration ---
-    "kitty"                        # GPU-accelerated terminal emulator
-    "polkit-gnome"                 # Provides graphical password prompts (Auth)
-    "wl-clipboard" "cliphist"      # System clipboard manager and history
-    "hyprshot"                     # Efficient screenshot tool tailored for Hyprland
-    "brightnessctl"                # CLI for controlling display brightness
-    "pavucontrol"                  # GUI for PulseAudio/Pipewire volume management
-    "network-manager-applet"       # System tray icon for WiFi/Network control
-    "blueman"                      # GUI for managing Bluetooth connections
-    "libnotify"                    # Core library for sending desktop notifications
-    "wlsunset"                     # Night light/Blue light filter for Wayland
+    "foot"                    # GPU-accelerated terminal emulator
+    "polkit-gnome"            # Provides graphical password prompts (Auth)
+    "wl-clipboard" "cliphist" # System clipboard manager and history
+    "hyprshot"                # Efficient screenshot tool tailored for Hyprland
+    "brightnessctl"           # CLI for controlling display brightness
+    "pavucontrol"             # GUI for PulseAudio/Pipewire volume management
+    "network-manager-applet"  # System tray icon for WiFi/Network control
+    "blueman"                 # GUI for managing Bluetooth connections
+    "libnotify"               # Core library for sending desktop notifications
+    "wlsunset"                # Night light/Blue light filter for Wayland
 )
 
 # ------------------------------------------------------------------------------

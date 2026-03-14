@@ -1,217 +1,118 @@
 /* --- Global Settings --- */
 * {
-    font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
     min-height: 0;
-    min-width: 0; /* Mandatory to allow the bar to shrink when placed vertically */
-    border-radius: 0;
+    min-width: 0;
+    border: none;
+    border-radius: 5px;
     box-shadow: none;
 }
 
 /* --- The Unified Background Bar --- */
-/* Apply background and border to the ENTIRE bar instead of individual groups */
 window#waybar {
-    background: rgba(30, 30, 46, 1.0); /* Unified dark background (Catppuccin) */
-    border: 2px solid rgba(255, 255, 255, 0.1); /* Unified border */
-    border-radius: 10px; /* Round the corners of the entire bar */
+    background: rgba(30, 30, 46, 0.9); 
     color: #cdd6f4;
     transition: background-color 0.2s ease;
 }
 
 /* --- Container Styling --- */
-/* Make the groups transparent so they sit directly on the unified bar */
 .modules-left,
 .modules-center,
 .modules-right {
     background: transparent;
-    border: none;
 }
 
 /* --- Base Styling for Items --- */
-.modules-left > widget > *,
-.modules-center > widget > *,
-.modules-right > widget > * {
-    background: transparent;
-    color: #cdd6f4;
-    transition: all 0.2s ease;
-}
-
-/* Auto-align paddings for HORIZONTAL layout */
 .horizontal .modules-left > widget > *,
 .horizontal .modules-center > widget > *,
 .horizontal .modules-right > widget > * {
-    padding: 2px 10px;
-    margin: 0; /* No margin needed when connected */
+    padding: 0 12px;
+    margin: 0;
 }
 
-/* Auto-align paddings for VERTICAL layout */
 .vertical .modules-left > widget > *,
 .vertical .modules-center > widget > *,
 .vertical .modules-right > widget > * {
-    padding: 10px 2px;
+    padding: 12px 0;
     margin: 0;
 }
 
 /* --- Left Modules --- */
 #custom-launcher {
-    color: #89b4fa; /* Signature Arch Linux blue */
-    font-size: 15px;
-    border-radius: 8px 0 0 8px; /* Round the left edge */
-}
-.vertical #custom-launcher { border-radius: 8px 8px 0 0; }
-.horizontal #custom-launcher { padding-left: 14px; padding-right: 14px; }
-.vertical #custom-launcher { padding-top: 14px; padding-bottom: 14px; }
-
-#custom-launcher:hover {
-    color: #11111b;
-    background: #89b4fa;
+    color: #07cdf5;
+    font-size: 16px;
+    padding-left: 16px;
 }
 
 /* --- Workspaces --- */
-#workspaces {
-    margin: 0;
-}
-
 #workspaces button {
-    color: #a6adc8;
-    border-radius: 6px; 
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: #6c7086;
+    padding: 0 6px;
+    background: transparent;
+    transition: all 0.2s ease;
 }
-
-.horizontal #workspaces button { padding: 0 8px; margin: 3px 2px; }
-.vertical #workspaces button { padding: 8px 0; margin: 2px 3px; }
 
 #workspaces button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #cdd6f4;
+    color: #bac2de;
+    background: transparent; 
+    box-shadow: none;
 }
 
 /* ACTIVE Workspace State */
 #workspaces button.active {
-    background: linear-gradient(135deg, #89b4fa, #74c7ec);
-    color: #11111b;
-    box-shadow: 0 0 10px rgba(137, 180, 250, 0.4);
+    color: #a6e3a1;
+    background: transparent;
+    border-bottom: 2px solid #a6e3a1;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 #window { 
-    color: #bac2de; 
-    padding-left: 8px;
-    padding-right: 14px;
+    color: #a6adc8; 
+    font-weight: 400;
 }
 
 /* --- Center Module --- */
 #clock { 
-    color: #f38ba8; 
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
-}
-.vertical #clock { margin: 0 3px; }
-
-#clock:hover { 
-    background: #f38ba8; 
-    color: #11111b;
+    color: #cdd6f4;
+    font-weight: 700;
 }
 
 /* --- Right Modules --- */
-#backlight { 
-    color: #f9e2af;
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
+#backlight { color: #f9e2af; }
+#pulseaudio { color: #89b4fa; }
+#network { color: #cba6f7; }
+#custom-keybinds { color: #94e2d5; }
+#battery { color: #a6e3a1; } 
+#network.disabled { color: #f38ba8; }
+#custom-power {
+    color: #f38ba8;
+    font-size: 15px;
+    padding-right: 16px;
 }
-#backlight:hover {
-    background: #f9e2af;
-    color: #11111b;
-}
-#pulseaudio {
-    color: #89b4fa;
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
-}
-#pulseaudio:hover {
-    background: #89b4fa;
-    color: #11111b;
-}
-#network {
-    color: #cba6f7;
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
-}
-#network:hover {
-    background: #cba6f7;
-    color: #11111b;
+
+#backlight:hover, 
+#pulseaudio:hover, 
+#network:hover, 
+#battery:hover, 
+#tray:hover, 
+#custom-keybinds:hover,
+#custom-power:hover {
+    color: #bac2de;
+    background: transparent;
 }
 
 /* Battery Handling */
-#battery { 
-    color: #a6e3a1;
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
-}
-#battery.warning {
-    color: #f9e2af;
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
-}
+#battery.warning { color: #f9e2af; }
 #battery.critical:not(.charging) {
     color: #f38ba8;
-    background: rgba(243, 139, 168, 0.1);
-    animation: blink 1s linear infinite;
-    border-radius: 6px;
+    animation: blink 1.5s linear infinite;
 }
-#battery.charging {
-    color: #a6e3a1;
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
-}
-
-#battery:hover {
-    color: #11111b;
-    background: #a6e3a1;
-}
-
-#tray { padding: 0 5px; }
-
-/* Power Button */
-#custom-power {
-    color: #f38ba8;
-    font-size: 14px;
-    border-radius: 0 8px 8px 0; /* Round the right edge to match the main bar */
-}
-
-.vertical #custom-power {
-    border-radius: 0 0 8px 8px;
-}
-
-.horizontal #custom-power { padding-left: 12px; padding-right: 14px; }
-.vertical #custom-power { padding-top: 10px; padding-bottom: 14px; }
-
-#custom-power:hover {
-    background: #f38ba8;
-    color: #11111b;
-}
-
-/* --- Keybindings Cheat Sheet Button --- */
-#custom-keybinds {
-    color: #6EE7B7; /* Mint accent color */
-    font-size: 12px;
-    transition: all 0.2s ease;
-    border-radius: 6px;
-    margin: 3px 0; /* Give it a little breathing room */
-}
-
-/* Auto-align padding based on orientation */
-.horizontal #custom-keybinds { padding-left: 10px; padding-right: 12px; margin: 3px 2px; }
-.vertical #custom-keybinds { padding-top: 10px; padding-bottom: 12px; margin: 2px 3px; }
-
-/* Hover effect */
-#custom-keybinds:hover {
-    background: #6EE7B7;
-    color: #0B1220; /* Dark text on hover for contrast */
-    box-shadow: 0 0 8px rgba(110, 231, 183, 0.4);
-}
+#battery.charging { color: #a6e3a1; }
 
 /* --- Animations --- */
 @keyframes blink {
-    50% { color: transparent; background: transparent; }
+    50% { opacity: 0.3; }
 }
