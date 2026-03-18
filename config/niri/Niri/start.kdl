@@ -12,22 +12,10 @@
 
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
+spawn-at-startup "hypridle"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "fcitx5" "-d"
-
-// Environment variables
-
-spawn-at-startup "waybar"
-spawn-at-startup "swaync"
-spawn-at-startup "swww-daemon"
-// spawn-at-startup "hypridle"  // Niri has built-in idle, or use swayidle
-spawn-at-startup "dbus-update-activation-environment --systemd --all"
-spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-spawn-at-startup "wl-paste --type text --watch cliphist store"
-spawn-at-startup "wl-paste --type image --watch cliphist store"
-spawn-at-startup "rm -f /tmp/night_light_state"
-spawn-at-startup "fcitx5 -d"
