@@ -1,0 +1,79 @@
+// ================================================
+//   _   ____  ______  _  _______  _  ___________ 
+//  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+//  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+// ================================================
+
+
+prefer-no-csd
+
+//=====================================
+// IMPORT SOURCE
+//=====================================
+include "Niri/outputs.kdl"
+include "Niri/layout.kdl"
+include "Niri/dms.kdl"
+include "Niri/animations.kdl"
+include "Niri/keybinds.kdl"
+include "Niri/rules.kdl"
+
+
+//=====================================
+// INPUT CONFIGURATION
+//=====================================
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "grp:rctrl_rshift_toggle,numpad:mac,compose:ralt"
+        }
+    }
+    touchpad {
+        tap
+        accel-speed 0.2
+        accel-profile "adaptive"
+        scroll-method "two-finger"
+    }
+    mouse {
+        accel-profile "flat"
+    }
+    tablet {
+        map-to-output "DP-2"
+    }
+
+    focus-follows-mouse
+}
+
+cursor {
+    xcursor-size 24
+}
+
+
+//=====================================
+// SWITCH EVENTS
+//=====================================
+// Core spawns & globals
+spawn-at-startup "xwayland-satellite"
+environment {
+    DISPLAY ":0"
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+config-notification {
+    disable-failed
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+//=====================================
+// SCREENSHOT PATH
+//=====================================
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+
+
