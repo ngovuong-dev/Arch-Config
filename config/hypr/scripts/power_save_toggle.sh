@@ -11,11 +11,10 @@ if [ ! -f "$FLAG" ]; then
   powerprofilesctl set power-saver
 
   # 2. Dim screen brightness to 10%
-  brightnessctl set 10%
+  brightnessctl set 20%
 
   # 3. Disable Hyprland eye-candy to save GPU resources (GTX 1650)
   hyprctl keyword animations:enabled 0
-  hyprctl keyword decoration:blur:enabled 0
 
   # Send notification via SwayNC
   notify-send -u critical -a "Power System" "MANUAL POWER SAVE: ON" "Animations disabled & Performance throttled."
@@ -27,11 +26,10 @@ else
   powerprofilesctl set performance
 
   # 2. Restore screen brightness to 60%
-  brightnessctl set 60%
+  brightnessctl set 85%
 
   # 3. Re-enable Hyprland eye-candy
   hyprctl keyword animations:enabled 1
-  hyprctl keyword decoration:blur:enabled 1
 
   # Send notification via SwayNC
   notify-send -u normal -a "Power System" "MANUAL POWER SAVE: OFF" "Animations enabled & Performance restored."

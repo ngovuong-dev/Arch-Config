@@ -42,9 +42,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo -e "${YELLOW}[4/5] Downloading Powerlevel10k, Autosuggestions & Syntax Highlighting...${NC}"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
-# Clone Powerlevel10k theme (using --depth=1 for a much faster download)
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
-
 # Clone essential plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
@@ -55,12 +52,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}
 # ------------------------------------------------------------------------------
 echo -e "${YELLOW}[5/5] Writing configurations to ~/.zshrc...${NC}"
 
-# Replace the default theme (robbyrussell) with powerlevel10k
-sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
-
 # Enable the plugins
 sed -i 's/^plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 
-echo -e "\n${GREEN}✅ SUCCESS! Your Zsh & Powerlevel10k machine is ready.${NC}"
+echo -e "\n${GREEN}✅ SUCCESS! Your Zsh machine is ready.${NC}"
 echo -e "${YELLOW}👉 Please LOG OUT and LOG BACK IN for the changes to take effect.${NC}"
 echo -e "${YELLOW}👉 The Powerlevel10k configuration wizard will automatically start on your first terminal launch!${NC}"

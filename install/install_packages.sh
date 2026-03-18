@@ -22,7 +22,6 @@ ESSENTIAL_TOOLS=(
   "nvtop"     # GPU monitor for your GTX 1650
 
   # 2. File & Disk Management (GNOME/GTK Stack)
-  "file-roller"        # Archive manager backend
   "gnome-disk-utility" # Disk partitioning & S.M.A.R.T monitoring
   "unzip" "p7zip"      # Compression engine
 
