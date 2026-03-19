@@ -10,12 +10,17 @@
 // AUTOSTART PROGRAMS
 //=====================================
 
+spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "hypridle"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "fcitx5" "-d"
+
+// Start swayidle: 5 mins to lock, 10 mins to turn off screen
+spawn-at-startup "bash" "-c" "swayidle -w timeout 300 'swaylock -f -c 1e1e2e' timeout 600 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors'"

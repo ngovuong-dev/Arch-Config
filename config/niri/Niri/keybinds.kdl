@@ -158,9 +158,9 @@ binds {
     XF86AudioPrev { spawn "playerctl" "previous"; }
     
     // ============ ZOOM ============
-    Mod+Ctrl+Equal { spawn "$HOME/.config/hypr/scripts/zoom.sh" "in"; }
-    Mod+Ctrl+Minus { spawn "$HOME/.config/hypr/scripts/zoom.sh" "out"; }
-    Mod+Ctrl+0 { spawn "$HOME/.config/hypr/scripts/zoom.sh" "reset"; }
+    Mod+Ctrl+Equal { spawn "~/.config/hypr/scripts/zoom.sh" "in"; }
+    Mod+Ctrl+Minus { spawn "~/.config/hypr/scripts/zoom.sh" "out"; }
+    Mod+Ctrl+0 { spawn "~/.config/hypr/scripts/zoom.sh" "reset"; }
     
     // ============ SESSION ============
     Mod+Ctrl+Alt+Delete { quit; }
