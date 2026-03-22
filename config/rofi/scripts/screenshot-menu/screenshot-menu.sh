@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Options for the Rofi menu
-option_region="󰹑  Region"
+option_region="󰹑  Region"y
 option_window="󱂬  Window"
 option_screen="󰍹  Screen"
 

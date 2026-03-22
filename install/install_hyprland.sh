@@ -29,7 +29,7 @@ HYPR_PACKAGES=(
     "waybar"              # Highly customizable status bar
     "rofi-wayland"        # Dynamic application launcher & menu
     "swaync"              # Notification daemon with built-in control center
-    "swww"                # High-performance wallpaper daemon (animated)
+    "swaybg"              # Lower-performance wallpaper daemon (animated)
     "hyprlock" "hypridle" # Modern screen locking and idle/sleep management
 
     # --- System Infrastructure & Hardware Integration ---

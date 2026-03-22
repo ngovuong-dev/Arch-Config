@@ -22,7 +22,7 @@
 /* --- MAIN CONTROL CENTER --- */
 .control-center {
   background: rgba(30, 30, 46, 0.75); /* 85% opacity */
-  border-radius: 12px;
+  border-radius: none;
   border: 1px solid @surface0;
   padding: 8px; 
 }
@@ -31,7 +31,7 @@
 .widget-title, .widget-dnd, .widget-mpris, .widget-volume, 
 .widget-backlight, .widget-menubar, .widget-buttons-grid {
   background: @mantle;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-bottom: 6px; /* Compact spacing */
 }
 
