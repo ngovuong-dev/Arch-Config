@@ -13,7 +13,7 @@
 window#waybar {
     background: rgba(17, 17, 27, 0.95); /* Catppuccin Crust - Deep Matte Black */
     color: #cdd6f4;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Thin Lavender bottom accent */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7); /* Thin Lavender bottom accent */
     margin: 0; /* Fits edge-to-edge for a cleaner system look */
     transition: all 0.3s ease;
 }
